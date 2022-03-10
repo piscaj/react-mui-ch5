@@ -4,7 +4,7 @@ import WebXPanel, {
   WebXPanelEvents,
 } from "@crestron/ch5-webxpanel/dist/cjs/index.js";
 import * as CrComLib from "@crestron/ch5-crcomlib/build_bundles/cjs/cr-com-lib";
-import { useDigitalState, usePublishDigital } from "./hooks";
+import { useDigitalState, usePublishDigital } from "./imports/hooks";
 
 function Main() {
   const [connected, setConnected] = useState(false);
@@ -53,7 +53,6 @@ function Main() {
   const screenUpState = useDigitalState("2");
   const handleDownStateClick = usePublishDigital("1", 0);
   const handleUpStateClick = usePublishDigital("2", 0);
-
 
   return (
     <div>
