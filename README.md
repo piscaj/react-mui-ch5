@@ -1,5 +1,5 @@
 
-Fix for (Error cannot find module crcomlib)
+Fix for loading of crcomlib to index.js
 
 Edit: node_modules/@crestron/ch5-crcomlib/package.json
 

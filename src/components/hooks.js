@@ -1,7 +1,7 @@
 import * as CrComLib from "@crestron/ch5-crcomlib";
 import { useCallback, useEffect, useState } from "react";
 
-// Number (Analog) send and receive
+// "number" or "n" (Analog) send and receive
 function useSignalStateNumber(signalName) {
   const [feedbackNumber, setFeedbackNumber] = useState();
   useEffect(() => {
@@ -18,7 +18,7 @@ function useSignalStateNumber(signalName) {
   return feedbackNumber;
 }
 
-// Bool (Digital) send and receive
+// "bool" or "b" (Digital) send and receive
 function useSignalStateBool(signalName) {
   const [feedbackBool, setFeedbackBool] = useState();
   useEffect(() => {
@@ -35,7 +35,7 @@ function useSignalStateBool(signalName) {
   return feedbackBool;
 }
 
-// String send and receive
+// "string" or "s" send and receive
 function useSignalStateString(signalName) {
   const [feedbackString, setFeedbackString] = useState();
   useEffect(() => {
