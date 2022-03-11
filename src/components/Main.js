@@ -29,9 +29,9 @@ import {
 import logoDark from "../assets/images/logoDark.png";
 import logoLight from "../assets/images/logoLight.png";
 import Box from "@mui/material/Box";
-import ButtonShowcase from "./pages/ButtonShowcase";
 import MenuLeft from "./widgets/MenuLeft";
 import { DriveLinks, DriveRoutes } from "./widgets/DrivePages";
+import MediaVolume from "./widgets/MediaVolume";
 
 function Main() {
   const [connected, setConnected] = useState(false);
@@ -278,7 +278,7 @@ function Main() {
                 width: "300px",
               }}
             >
-              <div>VOLUME</div>
+              <MediaVolume analogJoin="1"/>
             </Box>
             <Box
               sx={{
