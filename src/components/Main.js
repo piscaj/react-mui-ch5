@@ -29,7 +29,7 @@ import {
 import logoDark from "../assets/images/logoDark.png";
 import logoLight from "../assets/images/logoLight.png";
 import Box from "@mui/material/Box";
-import ButtonShowcase from "./ButtonShowcase";
+import ButtonShowcase from "./pages/ButtonShowcase";
 
 function Main() {
   const [connected, setConnected] = useState(false);
@@ -59,10 +59,12 @@ function Main() {
         port: processorPort,
       });
     }
+    //This callback will trigger when the WebXPanel CIP is connected.
     WebXPanel.addEventListener(WebXPanelEvents.CONNECT_CIP, ({ detail }) => {
       console.warn(`Websocket connected: `, detail.url);
       setConnected(true);
     });
+    //This callback will trigger when the WebXPanel CIP is disconnected.
     WebXPanel.addEventListener(WebXPanelEvents.DISCONNECT_CIP, ({ detail }) => {
       console.warn(`Websocket disconnected: `, detail);
       setConnected(false);
@@ -70,6 +72,7 @@ function Main() {
     return () => {};
   }, []);
 
+  //TO DO Run alerts to user based on connection
   useEffect(() => {
     return () => {};
   }, [connected]);

@@ -4,7 +4,12 @@ import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
 import { makeStyles } from "@mui/styles";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useDigitalState, usePublishDigital } from "./imports/hooks";
+import {
+  useDigitalState,
+  usePublishDigital,
+  usePublishDigitalLatch,
+  useStringState,
+} from "../imports/CrComLibHook";
 
 const MuiButton = ({
   text,
@@ -23,10 +28,14 @@ const MuiButton = ({
   ripple = false,
 }) => {
   const [style, styleState] = useState({ value: "primary" });
-  const [dynamicText, dynamicTextState] = useState({ value: "" });
+  const [dynamicText, dynamicTextState] = useState("");
   const digitalState = useDigitalState(digitalJoin);
+  const serialState = useStringState(serialJoin);
   const handleClick = usePublishDigital(digitalJoin, digitalPulseTime);
+  const handleTouchDown = usePublishDigitalLatch(digitalJoin, true);
+  const handleTouchUp = usePublishDigitalLatch(digitalJoin, false);
 
+  //Digital state feedback
   useEffect(() => {
     digitalState === true
       ? styleState({ value: muiColorFeedback })
@@ -34,6 +43,12 @@ const MuiButton = ({
 
     return () => {};
   }, [digitalState, muiColor, muiColorFeedback]);
+
+  //Serial state feedback
+  useEffect(() => {
+    dynamicTextState(serialState);
+    return () => {};
+  }, [serialState]);
 
   const useStyles = makeStyles({
     button: {
@@ -78,13 +93,13 @@ const MuiButton = ({
                 />
               </Box>
             ) : undefined}
-            {text === "" && dynamicText.value === "" ? undefined : (
+            {text === "" && dynamicText === "" ? undefined : (
               <Box
                 sx={{
                   p: "2.5px",
                 }}
               >
-                {dynamicText.value === "" ? text : dynamicText.value}
+                {dynamicText === "" ? text : dynamicText}
               </Box>
             )}
           </Box>
@@ -97,10 +112,10 @@ const MuiButton = ({
           color={style.value}
           style={addStyle}
           className={classes.button}
-          onMouseDown={() => {}}
-          onMouseUp={() => {}}
-          onTouchStart={() => {}}
-          onTouchEnd={() => {}}
+          onMouseDown={handleTouchDown}
+          onMouseUp={handleTouchUp}
+          onTouchStart={handleTouchDown}
+          onTouchEnd={handleTouchUp}
           disableRipple={ripple}
         >
           <Box
@@ -125,13 +140,13 @@ const MuiButton = ({
                 />
               </Box>
             ) : undefined}
-            {text === "" && dynamicText.value === "" ? undefined : (
+            {text === "" && dynamicText === "" ? undefined : (
               <Box
                 sx={{
                   p: "2.5px",
                 }}
               >
-                {dynamicText.value === "" ? text : dynamicText.value}
+                {dynamicText === "" ? text : dynamicText}
               </Box>
             )}
           </Box>

@@ -1,7 +1,7 @@
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
-import MuiButton from "./MuiButton";
-import Header from "./Header";
+import MuiButton from "../widgets/MuiButton";
+import Header from "../widgets/Header";
 import Fade from "@mui/material/Fade";
 
 const ButtonShowcase = (props) => {
@@ -72,7 +72,8 @@ const ButtonShowcase = (props) => {
                 }}
                 muiColor="primary"
                 muiColorFeedback="error"
-                digitalJoin=""
+                digitalJoin="3"
+                serialJoin="1"
               />
             </Box>
             <Box sx={{ p: "5px" }}>
@@ -82,7 +83,7 @@ const ButtonShowcase = (props) => {
                 muiColor="success"
                 muiColorFeedback="error"
                 eventType={"press"}
-                digitalJoin=""
+                digitalJoin="4"
               />
             </Box>
           </Box>
