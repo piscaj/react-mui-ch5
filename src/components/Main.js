@@ -30,6 +30,7 @@ import logoDark from "../assets/images/logoDark.png";
 import logoLight from "../assets/images/logoLight.png";
 import Box from "@mui/material/Box";
 import ButtonShowcase from "./pages/ButtonShowcase";
+import MenuLeft from "./widgets/MenuLeft";
 
 function Main() {
   const [connected, setConnected] = useState(false);
@@ -171,6 +172,7 @@ function Main() {
             <Box sx={{ p: "5px" }}>Updating</Box>
           </Box>
         </Backdrop>
+        <MenuLeft ref={menuLeft} />
 
         <Box
           sx={{
@@ -212,7 +214,7 @@ function Main() {
             >
               <IconButton
                 className="burger-menu"
-                //onClick={() => menuLeft.current.toggleDrawer()}
+                onClick={() => menuLeft.current.toggleDrawer()}
               >
                 <FontAwesomeIcon
                   icon={faBars}
