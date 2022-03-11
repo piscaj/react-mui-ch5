@@ -17,8 +17,9 @@ import {
   faTv,
 } from "@fortawesome/pro-duotone-svg-icons";
 import "../../assets/scss/MenuL.scss";
+import { useDigitalState, usePublishDigital } from "../imports/CrComLibHook";
 
-const MenuLeft = forwardRef((props , ref) => {
+const MenuLeft = forwardRef((props, ref) => {
   const [drawerOpen, drawerOpenState] = useState({ value: false });
 
   //iOS is hosted on high-end devices. The backdrop transition can be enabled without dropping frames. The performance will be good enough.
@@ -27,8 +28,6 @@ const MenuLeft = forwardRef((props , ref) => {
   const iOS =
     typeof navigator !== "undefined" &&
     /iPad|iPhone|iPod/.test(navigator.userAgent);
-
-
 
   const setDrawerOpen = (newState) => {
     drawerOpenState({ value: newState });
@@ -41,10 +40,7 @@ const MenuLeft = forwardRef((props , ref) => {
   }));
 
   useEffect(() => {
-
-    return () => {
-    
-    };
+    return () => {};
   }, []);
 
   return (
@@ -61,10 +57,10 @@ const MenuLeft = forwardRef((props , ref) => {
           <Box sx={{ width: "270px" }}>
             <List>
               <ListItem
+                selected={useDigitalState("10")}
                 button
-  
-                onClick={() => {
-                  
+                onMouseDown={usePublishDigital("10", 0)}
+                onMouseUp={() => {
                   setDrawerOpen(false);
                 }}
               >
@@ -80,10 +76,10 @@ const MenuLeft = forwardRef((props , ref) => {
             </List>
             <List>
               <ListItem
-                
+                selected={useDigitalState("11")}
                 button
-                onClick={() => {
-                 
+                onMouseDown={usePublishDigital("11", 0)}
+                onMouseUp={() => {
                   setDrawerOpen(false);
                 }}
               >
@@ -96,10 +92,10 @@ const MenuLeft = forwardRef((props , ref) => {
             </List>
             <List>
               <ListItem
-              
+                selected={useDigitalState("12")}
                 button
-                onClick={() => {
-                  
+                onMouseDown={usePublishDigital("12", 0)}
+                onMouseUp={() => {
                   setDrawerOpen(false);
                 }}
               >
@@ -112,10 +108,10 @@ const MenuLeft = forwardRef((props , ref) => {
             </List>
             <List>
               <ListItem
-               
+                selected={useDigitalState("13")}
                 button
-                onClick={() => {
-                 
+                onMouseDown={usePublishDigital("13", 0)}
+                onMouseUp={() => {
                   setDrawerOpen(false);
                 }}
               >
@@ -131,10 +127,10 @@ const MenuLeft = forwardRef((props , ref) => {
             </List>
             <List>
               <ListItem
-
+                selected={useDigitalState("14")}
                 button
-                onClick={() => {
-                 
+                onMouseDown={usePublishDigital("14", 0)}
+                onMouseUp={() => {
                   setDrawerOpen(false);
                 }}
               >
@@ -146,7 +142,7 @@ const MenuLeft = forwardRef((props , ref) => {
               </ListItem>
             </List>
             <Divider />
-                     </Box>
+          </Box>
         </SwipeableDrawer>
       </Box>
     </>
