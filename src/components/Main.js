@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import WebXPanel, {
   isActive,
   WebXPanelEvents,
@@ -13,11 +13,23 @@ import {
   responsiveFontSizes,
 } from "@mui/material//styles";
 import { deepOrange, grey, indigo } from "@mui/material/colors";
-
+import Backdrop from "@mui/material/Backdrop";
+import CircularProgress from "@mui/material/CircularProgress";
+import Alert from "@mui/material/Alert";
+import AlertTitle from "@mui/material/AlertTitle";
+import Slide from "@mui/material/Slide";
+import "../assets/scss/Main.scss";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faBars,
+  faCheeseburger,
+  faSun,
+  faMoon,
+} from "@fortawesome/pro-duotone-svg-icons";
+import logoDark from "../assets/images/logoDark.png";
+import logoLight from "../assets/images/logoLight.png";
 import Box from "@mui/material/Box";
-import Paper from "@mui/material/Paper";
-import Header from "./Header";
-import MuiButton from "./MuiButton";
+import ButtonShowcase from "./ButtonShowcase";
 
 function Main() {
   const [connected, setConnected] = useState(false);
@@ -62,7 +74,21 @@ function Main() {
     return () => {};
   }, [connected]);
 
+  const [loader, setLoader] = useState(false);
+  const [alertMessage, setAlertMessage] = useState({
+    active: false,
+    severity: "info",
+    title: "None",
+    message: "None",
+  });
   const [mode, setMode] = useState("light");
+  const menuLeft = useRef();
+
+  const clearAlert = () => {
+    alertMessage.active === true
+      ? setAlertMessage({ active: false })
+      : setAlertMessage({ active: true });
+  };
 
   const colorMode = React.useMemo(
     () => ({
@@ -119,87 +145,144 @@ function Main() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Paper
-        sx={{
-          position: "absolute",
-          top: "0",
-          bottom: "0",
-          left: "0",
-          right: "0",
-          m: "10px",
-          overflow: "scroll",
-        }}
-      >
+      <Box className="container">
+        <Backdrop
+          sx={{ color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 1 }}
+          open={loader}
+          onClick={() => {
+            setLoader(false);
+          }}
+        >
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              flexWrap: "nowrap",
+              alignItems: "center",
+              overflow: "hidden",
+            }}
+          >
+            <Box sx={{ p: "5px" }}>
+              <CircularProgress color="inherit" />
+            </Box>
+            <Box sx={{ p: "5px" }}>Updating</Box>
+          </Box>
+        </Backdrop>
+
         <Box
           sx={{
             display: "flex",
             flexDirection: "column",
-            alignItems: "center",
-            overflow: "hidden",
           }}
+          className="header"
         >
-          <Box sx={{ m: "15px" }}>
-            <Header title={"Showcase"} />
-          </Box>
-          <Box sx={{ fontSize: "12px", mb: "5px" }}>MUI Button</Box>
-
+          <Slide
+            direction="down"
+            in={alertMessage.active}
+            mountOnEnter
+            unmountOnExit
+          >
+            <Box
+              className="alert"
+              onClick={() => {
+                clearAlert();
+              }}
+            >
+              <Alert severity={alertMessage.severity}>
+                <AlertTitle> {alertMessage.title}</AlertTitle>
+                {alertMessage.message}
+              </Alert>
+            </Box>
+          </Slide>
           <Box
             sx={{
               display: "flex",
               flexDirection: "row",
-              flexWrap: "wrap",
               alignItems: "center",
-              justifyContent: "center",
               overflow: "hidden",
-              mb: "20px",
             }}
           >
-            <Box sx={{ p: "5px" }}>
-              <MuiButton
-                text="Contained"
-                muiColor="primary"
-                muiColorFeedback="secondary"
-                muiVariant="contained"
-                digitalJoin="1"
-              />
+            <Box
+              sx={{
+                width: "45px",
+              }}
+            >
+              <IconButton
+                className="burger-menu"
+                //onClick={() => menuLeft.current.toggleDrawer()}
+              >
+                <FontAwesomeIcon
+                  icon={faBars}
+                  size="lg"
+                  className="icon-bars"
+                />
+                <FontAwesomeIcon
+                  icon={faCheeseburger}
+                  size="lg"
+                  className="icon-burger"
+                />
+              </IconButton>
             </Box>
-            <Box sx={{ p: "5px" }}>
-              <MuiButton
-                text="Outlined"
-                muiColor="success"
-                muiColorFeedback="error"
-                muiVariant="outlined"
-                digitalJoin="2"
-              />
+            <Box
+              className="logo"
+              sx={{
+                ml: "5px",
+                mt: "8px",
+              }}
+            >
+              {theme.palette.mode === "dark" ? (
+                <img src={logoDark} alt="" />
+              ) : (
+                <img src={logoLight} alt="" />
+              )}
             </Box>
-            <Box sx={{ p: "5px" }}>
-              <MuiButton
-                text="Some Text"
-                muiVariant="text"
-                addStyle={{
-                  maxWidth: "130px",
-                  maxHeight: "25px",
-                  minWidth: "130px",
-                  minHeight: "25px",
-                }}
-                muiColor="primary"
-                muiColorFeedback="error"
-                digitalJoin=""
-              />
-            </Box>
-            <Box sx={{ p: "5px" }}>
-              <MuiButton
-                text="Press"
-                muiVariant="contained"
-                muiColor="success"
-                muiColorFeedback="error"
-                eventType={"press"}
-                digitalJoin=""
-              />
+
+            <Box sx={{ ml: "auto", fontSize: "12px" }}>
+              {theme.palette.mode} mode
+              <IconButton
+                sx={{ mb: "5px", mt: "5px" }}
+                onClick={colorMode.toggleColorMode}
+                color="inherit"
+              >
+                {theme.palette.mode === "dark" ? (
+                  <FontAwesomeIcon icon={faMoon} size="lg" />
+                ) : (
+                  <FontAwesomeIcon icon={faSun} size="lg" />
+                )}
+              </IconButton>
             </Box>
           </Box>
         </Box>
-      </Paper>
+        <Box className="body">
+          <ButtonShowcase />
+        </Box>
+        <Box className="footer">
+          <Box
+            sx={{
+              position: "relative",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+            }}
+          >
+            <Box
+              sx={{
+                width: "300px",
+              }}
+            >
+              <div>VOLUME</div>
+            </Box>
+            <Box
+              sx={{
+                p: "3px",
+                ml: "auto",
+              }}
+            >
+              <div>POWER</div>
+            </Box>
+          </Box>
+        </Box>
+      </Box>
     </ThemeProvider>
   );
 }

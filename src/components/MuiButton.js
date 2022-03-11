@@ -72,7 +72,6 @@ const MuiButton = ({
   const classes = useStyles();
 
   useEffect(() => {
-    console.log(digitalState);
     digitalState === true
       ? styleState({ value: activeColor.value })
       : styleState({ value: inActiveColor.value });
