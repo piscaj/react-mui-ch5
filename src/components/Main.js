@@ -31,6 +31,7 @@ import logoLight from "../assets/images/logoLight.png";
 import Box from "@mui/material/Box";
 import ButtonShowcase from "./pages/ButtonShowcase";
 import MenuLeft from "./widgets/MenuLeft";
+import { DriveLinks, DriveRoutes } from "./widgets/DrivePages";
 
 function Main() {
   const [connected, setConnected] = useState(false);
@@ -259,7 +260,9 @@ function Main() {
           </Box>
         </Box>
         <Box className="body">
-          <ButtonShowcase />
+          <DriveRoutes />
+
+          <DriveLinks />
         </Box>
         <Box className="footer">
           <Box

@@ -92,8 +92,6 @@ const ButtonShowcase = (props) => {
     </Fade>
   );
 };
-MuiButton.propTypes = {
-
-};
+MuiButton.propTypes = {};
 
 export default ButtonShowcase;
