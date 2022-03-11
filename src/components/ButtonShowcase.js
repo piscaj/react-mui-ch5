@@ -1,7 +1,6 @@
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import MuiButton from "./MuiButton";
-import PropTypes from "prop-types";
 import Header from "./Header";
 import Fade from "@mui/material/Fade";
 

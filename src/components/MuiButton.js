@@ -6,61 +6,34 @@ import { makeStyles } from "@mui/styles";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useDigitalState, usePublishDigital } from "./imports/hooks";
 
-// Props definition for component /////////////////////////////////////////////
-// "text" - Button text
-// "muiColor" - Default "primary" Inactive state of the button. This must be an MUI Button color value
-// "muiColorFeedback" - Default "secondary" Active state of the button. This must be an MUI Button color value
-// "muiVariant" - Default "outlined" - This must be an MUI Variant value
-// "digitalName" - This name should match up to the Crestron digital name paramiter
-// "joinNumber" - Digital join number in Crestron for pulse/push
-// "serialName" - Dynamic button text. This name should match up to the Crestron serial name paramiter
-// "eventType" - Default "click" - values: "click" or "press"
-// "sendMessage" - Pass the websocket as an object here
-// "faIcon" - FontAwesome icon -- any imported icon
-// "faClass" - FontAwesome class -- any fa class
-// "faSize" - FontAwesome icon size -- lg, sm, 1x, 2x, 3x, 4x
-///////////////////////////////////////////////////////////////////////////////
-
 const MuiButton = ({
   text,
-  muiColor = null,
-  muiColorFeedback = null,
-  muiVariant = null,
+  muiColor = "primary",
+  muiColorFeedback = "secondary",
+  muiVariant = "outlined",
   addStyle = {},
   faIcon,
   faClass,
   faSize,
   idName,
-  digitalJoin,
-  serialJoin = null,
-  digitalPulseTime,
-  eventType = null,
+  digitalJoin = "0",
+  serialJoin = "0",
+  digitalPulseTime = 0,
+  eventType = "click",
+  ripple = false,
 }) => {
   const [style, styleState] = useState({ value: "primary" });
-  const [handlerType, handlerTypeState] = useState({
-    value: eventType === null ? "click" : eventType,
-  });
-  const [variantType, variantTypeState] = useState({
-    value: muiVariant === null ? "outlined" : muiVariant,
-  });
-  const [styleType, styleTypeState] = useState({
-    value: addStyle === {} ? {} : addStyle,
-  });
   const [dynamicText, dynamicTextState] = useState({ value: "" });
-  const [inActiveColor, inActiveColorState] = useState({
-    value: muiColor === null ? "primary" : muiColor,
-  });
-  const [activeColor, activeColorState] = useState({
-    value: muiColorFeedback === null ? "secondary" : muiColorFeedback,
-  });
+  const digitalState = useDigitalState(digitalJoin);
+  const handleClick = usePublishDigital(digitalJoin, digitalPulseTime);
 
-  const digitalState = useDigitalState(
-    digitalJoin === null ? "0" : digitalJoin
-  );
-  const handleClick = usePublishDigital(
-    digitalJoin === null ? "0" : digitalJoin,
-    digitalPulseTime === null ? 0 : digitalPulseTime
-  );
+  useEffect(() => {
+    digitalState === true
+      ? styleState({ value: muiColorFeedback })
+      : styleState({ value: muiColor });
+
+    return () => {};
+  }, [digitalState, muiColor, muiColorFeedback]);
 
   const useStyles = makeStyles({
     button: {
@@ -71,51 +44,17 @@ const MuiButton = ({
   });
   const classes = useStyles();
 
-  useEffect(() => {
-    digitalState === true
-      ? styleState({ value: activeColor.value })
-      : styleState({ value: inActiveColor.value });
-
-    return () => {};
-  }, [digitalState, activeColor, inActiveColor]);
-
-  useEffect(() => {
-    if (!eventType === null) {
-      handlerTypeState({ value: eventType });
-    }
-  }, [eventType]);
-
-  useEffect(() => {
-    if (!muiVariant === null) {
-      variantTypeState({ value: muiVariant });
-    }
-  }, [muiVariant]);
-
-  useEffect(() => {
-    if (!addStyle === {}) {
-      styleTypeState({ value: addStyle });
-    }
-  }, [addStyle]);
-
-  useEffect(() => {
-    if (!muiColor === null) inActiveColorState({ value: muiColor });
-  }, [muiColor]);
-
-  useEffect(() => {
-    if (!muiColorFeedback === null)
-      activeColorState({ value: muiColorFeedback });
-  }, [muiColorFeedback]);
-
   return (
     <div>
-      {handlerType.value === "click" ? (
+      {eventType === "click" ? (
         <Button
           id={idName}
-          variant={variantType.value}
+          variant={muiVariant}
           color={style.value}
-          style={styleType.value}
+          style={addStyle}
           className={classes.button}
           onClick={handleClick}
+          disableRipple={ripple}
         >
           <Box
             sx={{
@@ -151,17 +90,18 @@ const MuiButton = ({
           </Box>
         </Button>
       ) : undefined}
-      {handlerType.value === "press" ? (
+      {eventType === "press" ? (
         <Button
           id={idName}
-          variant={variantType.value}
+          variant={muiVariant}
           color={style.value}
-          style={styleType.value}
+          style={addStyle}
           className={classes.button}
           onMouseDown={() => {}}
           onMouseUp={() => {}}
           onTouchStart={() => {}}
           onTouchEnd={() => {}}
+          disableRipple={ripple}
         >
           <Box
             sx={{
@@ -212,6 +152,7 @@ MuiButton.propTypes = {
   serialJoin: PropTypes.string,
   digitalPulseTime: PropTypes.number,
   eventType: PropTypes.string,
+  ripple: PropTypes.bool,
 };
 
 export default MuiButton;
