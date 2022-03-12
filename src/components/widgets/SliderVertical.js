@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faVolumeUp, faVolumeDown } from "@fortawesome/pro-duotone-svg-icons";
 import { useAnalogState, usePublishAnalog } from "../imports/CrComLibHook";
 
-const MediaVolume = ({ analogJoin = "0" }) => {
+const SliderVertical = ({ analogJoin = "0", styleClass = "" }) => {
   const [barValue, setbarValue] = useState("25");
   const [moving, setMoving] = useState(false);
   var movingTimeout;
@@ -39,21 +39,31 @@ const MediaVolume = ({ analogJoin = "0" }) => {
   }, [analogState, moving]);
 
   return (
-    <Stack direction="row" spacing={2} sx={{ mb: 1 }} alignItems="center">
-      <FontAwesomeIcon icon={faVolumeDown} size="lg" />
+    <Stack
+      direction="column"
+      spacing={2}
+      sx={{
+        height: 275,
+      }}
+      alignItems="center"
+    >
+      <FontAwesomeIcon icon={faVolumeUp} size="xl" />
       <Slider
+        className={styleClass}
+        orientation="vertical"
         valueLabelDisplay="auto"
         value={isNaN(parseInt(barValue, 10)) ? 10 : parseInt(barValue, 10)}
         onChange={handleChange}
         onChangeCommitted={handleCommitted}
       />
-      <FontAwesomeIcon icon={faVolumeUp} size="lg" />
+      <FontAwesomeIcon icon={faVolumeDown} size="xl" />
     </Stack>
   );
 };
 
-MediaVolume.propTypes = {
+SliderVertical.propTypes = {
   analogJoin: PropTypes.string,
+  class: PropTypes.string,
 };
 
-export default MediaVolume;
+export default SliderVertical;

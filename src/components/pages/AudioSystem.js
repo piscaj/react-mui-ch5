@@ -2,6 +2,8 @@ import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import Header from "../widgets/Header";
 import Fade from "@mui/material/Fade";
+import SliderVertical from "../widgets/SliderVertical";
+import "../../assets/scss/AudioSystem.scss";
 
 const AudioSystem = (props) => {
   return (
@@ -28,7 +30,9 @@ const AudioSystem = (props) => {
           <Box sx={{ m: "15px" }}>
             <Header title={"Audio Power and Levels"} />
           </Box>
-          <Box sx={{ fontSize: "12px", mb: "5px" }}>Controls here...</Box>
+          <Box sx={{ fontSize: "12px", mb: "5px" }}>
+            <SliderVertical analogJoin="1" styleClass="hideThumb" />
+          </Box>
         </Box>
       </Paper>
     </Fade>

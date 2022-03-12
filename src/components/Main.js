@@ -31,7 +31,7 @@ import logoLight from "../assets/images/logoLight.png";
 import Box from "@mui/material/Box";
 import MenuLeft from "./widgets/MenuLeft";
 import { DriveLinks, DriveRoutes } from "./widgets/DrivePages";
-import MediaVolume from "./widgets/MediaVolume";
+import SliderHorizontal from "./widgets/SliderHorizontal";
 
 function Main() {
   const [connected, setConnected] = useState(false);
@@ -278,7 +278,7 @@ function Main() {
                 width: "300px",
               }}
             >
-              <MediaVolume analogJoin="1"/>
+              <SliderHorizontal analogJoin="1" />
             </Box>
             <Box
               sx={{
