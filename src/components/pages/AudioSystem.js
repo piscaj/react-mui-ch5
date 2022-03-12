@@ -30,7 +30,11 @@ const AudioSystem = (props) => {
           <Box sx={{ m: "15px" }}>
             <Header title={"Audio Power and Levels"} />
           </Box>
-          <Box sx={{ fontSize: "12px", mb: "5px" }}>
+          <Box
+            sx={{
+              height: "300px",
+            }}
+          >
             <SliderVertical analogJoin="1" styleClass="hideThumb" />
           </Box>
         </Box>

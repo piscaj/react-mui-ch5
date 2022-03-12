@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
-import Stack from "@mui/material/Stack";
 import Slider from "@mui/material/Slider";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faVolumeUp, faVolumeDown } from "@fortawesome/pro-duotone-svg-icons";
 import { useAnalogState, usePublishAnalog } from "../imports/CrComLibHook";
 
 const SliderVertical = ({ analogJoin = "0", styleClass = "" }) => {
@@ -39,15 +36,7 @@ const SliderVertical = ({ analogJoin = "0", styleClass = "" }) => {
   }, [analogState, moving]);
 
   return (
-    <Stack
-      direction="column"
-      spacing={2}
-      sx={{
-        height: 275,
-      }}
-      alignItems="center"
-    >
-      <FontAwesomeIcon icon={faVolumeUp} size="xl" />
+
       <Slider
         className={styleClass}
         orientation="vertical"
@@ -56,8 +45,7 @@ const SliderVertical = ({ analogJoin = "0", styleClass = "" }) => {
         onChange={handleChange}
         onChangeCommitted={handleCommitted}
       />
-      <FontAwesomeIcon icon={faVolumeDown} size="xl" />
-    </Stack>
+  
   );
 };
 
