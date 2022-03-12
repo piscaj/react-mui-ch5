@@ -1,7 +1,7 @@
 
 The com library will have importing problems to index.js when first installed.
 
-To fix it do the following:
+To fix this do the following:
 
 	1.	Open: node_modules/@crestron/ch5-crcomlib/package.json
 	2.	Change: "types": "build_bundles/umd/@types/index.d.ts"
