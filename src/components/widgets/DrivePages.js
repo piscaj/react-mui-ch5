@@ -12,7 +12,7 @@ import Recording from "../pages/Recording";
 
 //This component just moves the clutter of React Router and the
 //Linker component out of the Main component to clean things up.
-//We drive all the pages here
+//This is where to drive all the pages.
 
 //React Router routes go here
 export const DriveRoutes = () => {
@@ -33,7 +33,7 @@ export const DriveRoutes = () => {
 
 DriveRoutes.propTypes = {};
 
-//The Linker is a hook to trigger page routing.
+//The Linker is a hook to trigger page routing from Crestron.
 export const DriveLinks = () => {
   return (
     <>
