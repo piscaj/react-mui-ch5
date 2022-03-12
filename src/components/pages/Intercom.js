@@ -3,7 +3,7 @@ import Paper from "@mui/material/Paper";
 import Header from "../widgets/Header";
 import Fade from "@mui/material/Fade";
 
-const Logo = (props) => {
+const Intercom = (props) => {
   return (
     <Fade in={true}>
       <Paper
@@ -26,14 +26,14 @@ const Logo = (props) => {
           }}
         >
           <Box sx={{ m: "15px" }}>
-            <Header title={"Welcome Message"} />
+            <Header title={"Intercom & Paging"} />
           </Box>
-          <Box sx={{ fontSize: "12px", mb: "5px" }}>Logo goes here...</Box>
+          <Box sx={{ fontSize: "12px", mb: "5px" }}>Controls here...</Box>
         </Box>
       </Paper>
     </Fade>
   );
 };
-Logo.propTypes = {};
+Intercom.propTypes = {};
 
-export default Logo;
+export default Intercom;
