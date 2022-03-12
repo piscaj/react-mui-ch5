@@ -6,21 +6,32 @@ import Divider from "@mui/material/Divider";
 import ListItem from "@mui/material/ListItem";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
+import { styled } from "@mui/material/styles";
+import { grey } from "@mui/material/colors";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faLaptop,
+  faCompactDisc,
   faWebcam,
-  faDesktop,
-  faTheaterMasks,
-  faExchangeAlt,
-  faProjector,
   faTv,
+  faWalkieTalkie,
+  faBoombox,
+  faArrowsCross,
+  faCassetteTape,
 } from "@fortawesome/pro-duotone-svg-icons";
 import "../../assets/scss/MenuL.scss";
 import { useDigitalState, usePublishDigital } from "../imports/CrComLibHook";
 
 const MenuLeft = forwardRef((props, ref) => {
   const [drawerOpen, drawerOpenState] = useState({ value: false });
+
+  const Puller = styled(Box)(({ theme }) => ({
+    width: 6,
+    height: 30,
+    backgroundColor: theme.palette.mode === "light" ? grey[400] : grey[200],
+    borderRadius: 3,
+    top: "45%",
+    position: "absolute",
+  }));
 
   //iOS is hosted on high-end devices. The backdrop transition can be enabled without dropping frames. The performance will be good enough.
   //iOS has a "swipe to go back" feature that interferes with the discovery feature, so discovery has to be disabled.
@@ -45,106 +56,161 @@ const MenuLeft = forwardRef((props, ref) => {
 
   return (
     <>
-      <Box>
-        <SwipeableDrawer
-          anchor="left"
-          open={drawerOpen.value}
-          disableBackdropTransition={!iOS}
-          disableDiscovery={iOS}
-          onClose={() => setDrawerOpen(false)}
-          onOpen={() => setDrawerOpen(true)}
+      <Puller />
+      <SwipeableDrawer
+        anchor="left"
+        open={drawerOpen.value}
+        disableBackdropTransition={!iOS}
+        disableDiscovery={iOS}
+        onClose={() => setDrawerOpen(false)}
+        onOpen={() => setDrawerOpen(true)}
+      >
+        <Box
+          sx={{
+            width: "270px",
+          }}
         >
-          <Box sx={{ width: "270px" }}>
-            <List>
-              <ListItem
-                selected={useDigitalState("10")}
-                button
-                onMouseDown={usePublishDigital("10", 0)}
-                onMouseUp={() => {
-                  setDrawerOpen(false);
-                }}
-              >
-                <ListItemIcon>
-                  <FontAwesomeIcon icon={faDesktop} size="2x" />
-                </ListItemIcon>
-
-                <ListItemText
-                  primary="Room PC"
-                  secondary="for ZOOM conference"
-                />
-              </ListItem>
-            </List>
-            <List>
-              <ListItem
-                selected={useDigitalState("11")}
-                button
-                onMouseDown={usePublishDigital("11", 0)}
-                onMouseUp={() => {
-                  setDrawerOpen(false);
-                }}
-              >
-                <ListItemIcon>
-                  <FontAwesomeIcon icon={faLaptop} size="2x" />
-                </ListItemIcon>
-
-                <ListItemText primary="Laptop" secondary="& portable devices" />
-              </ListItem>
-            </List>
-            <List>
-              <ListItem
-                selected={useDigitalState("12")}
-                button
-                onMouseDown={usePublishDigital("12", 0)}
-                onMouseUp={() => {
-                  setDrawerOpen(false);
-                }}
-              >
-                <ListItemIcon>
-                  <FontAwesomeIcon icon={faWebcam} size="2x" />
-                </ListItemIcon>
-
-                <ListItemText primary="Camera Controls" secondary="& presets" />
-              </ListItem>
-            </List>
-            <List>
-              <ListItem
-                selected={useDigitalState("13")}
-                button
-                onMouseDown={usePublishDigital("13", 0)}
-                onMouseUp={() => {
-                  setDrawerOpen(false);
-                }}
-              >
-                <ListItemIcon>
-                  <FontAwesomeIcon icon={faExchangeAlt} size="2x" />
-                </ListItemIcon>
-
-                <ListItemText
-                  primary="Video Switching"
-                  secondary="Advanced source routing"
-                />
-              </ListItem>
-            </List>
-            <List>
-              <ListItem
-                selected={useDigitalState("14")}
-                button
-                onMouseDown={usePublishDigital("14", 0)}
-                onMouseUp={() => {
-                  setDrawerOpen(false);
-                }}
-              >
-                <ListItemIcon>
-                  <FontAwesomeIcon icon={faTheaterMasks} size="2x" />
-                </ListItemIcon>
-
-                <ListItemText primary="Showcase" secondary="MUI Components" />
-              </ListItem>
-            </List>
-            <Divider />
+          <Box
+            sx={{
+              position: "absolute",
+              width: "10px",
+              right: "0px",
+              top: "45%",
+            }}
+          >
+            <Puller />
           </Box>
-        </SwipeableDrawer>
-      </Box>
+          <List>
+            <ListItem
+              selected={useDigitalState("10")}
+              button
+              onMouseDown={usePublishDigital("10", 0)}
+              onMouseUp={() => {
+                setDrawerOpen(false);
+              }}
+            >
+              <ListItemIcon>
+                <FontAwesomeIcon icon={faBoombox} size="2x" />
+              </ListItemIcon>
+
+              <ListItemText
+                primary="Audio System"
+                secondary="Power and level controls"
+              />
+            </ListItem>
+          </List>
+          <List>
+            <ListItem
+              selected={useDigitalState("11")}
+              button
+              onMouseDown={usePublishDigital("11", 0)}
+              onMouseUp={() => {
+                setDrawerOpen(false);
+              }}
+            >
+              <ListItemIcon>
+                <FontAwesomeIcon icon={faArrowsCross} size="2x" />
+              </ListItemIcon>
+
+              <ListItemText
+                primary="Presentation Switcher"
+                secondary="Stage video inputs"
+              />
+            </ListItem>
+          </List>
+          <List>
+            <ListItem
+              selected={useDigitalState("12")}
+              button
+              onMouseDown={usePublishDigital("12", 0)}
+              onMouseUp={() => {
+                setDrawerOpen(false);
+              }}
+            >
+              <ListItemIcon>
+                <FontAwesomeIcon icon={faCompactDisc} size="2x" />
+              </ListItemIcon>
+
+              <ListItemText primary="Blu-Ray" secondary="Transport controls" />
+            </ListItem>
+          </List>
+          <List>
+            <ListItem
+              selected={useDigitalState("13")}
+              button
+              onMouseDown={usePublishDigital("13", 0)}
+              onMouseUp={() => {
+                setDrawerOpen(false);
+              }}
+            >
+              <ListItemIcon>
+                <FontAwesomeIcon icon={faTv} size="2x" />
+              </ListItemIcon>
+
+              <ListItemText
+                primary="Displays"
+                secondary="Building wide display control"
+              />
+            </ListItem>
+          </List>
+          <List>
+            <ListItem
+              selected={useDigitalState("14")}
+              button
+              onMouseDown={usePublishDigital("14", 0)}
+              onMouseUp={() => {
+                setDrawerOpen(false);
+              }}
+            >
+              <ListItemIcon>
+                <FontAwesomeIcon icon={faWebcam} size="2x" />
+              </ListItemIcon>
+
+              <ListItemText primary="Camera" secondary="Controls & presets" />
+            </ListItem>
+          </List>
+          <List>
+            <ListItem
+              selected={useDigitalState("15")}
+              button
+              onMouseDown={usePublishDigital("15", 0)}
+              onMouseUp={() => {
+                setDrawerOpen(false);
+              }}
+            >
+              <ListItemIcon>
+                <FontAwesomeIcon icon={faWalkieTalkie} size="2x" />
+              </ListItemIcon>
+
+              <ListItemText
+                primary="Communication"
+                secondary="Intercom & paging controls"
+              />
+            </ListItem>
+          </List>
+          <List>
+            <ListItem
+              selected={useDigitalState("16")}
+              button
+              onMouseDown={usePublishDigital("16", 0)}
+              onMouseUp={() => {
+                setDrawerOpen(false);
+              }}
+            >
+              <ListItemIcon>
+                <FontAwesomeIcon icon={faCassetteTape} size="2x" />
+              </ListItemIcon>
+
+              <ListItemText
+                primary="Recording"
+                secondary="Video & audio recorders"
+              />
+            </ListItem>
+          </List>
+
+          <Divider />
+        </Box>
+      </SwipeableDrawer>
     </>
   );
 });

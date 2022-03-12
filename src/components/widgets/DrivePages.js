@@ -37,14 +37,14 @@ DriveRoutes.propTypes = {};
 export const DriveLinks = () => {
   return (
     <>
-      <Linker link="/showcase" digitalJoin="10" />
-      <Linker link="/audiosys" digitalJoin="11" />
-      <Linker link="/presswitcher" digitalJoin="12" />
-      <Linker link="/bluray" digitalJoin="13" />
-      <Linker link="/displays" digitalJoin="14" />
-      <Linker link="/camera" digitalJoin="15" />
-      <Linker link="/intercom" digitalJoin="16" />
-      <Linker link="/recording" digitalJoin="17" />
+      <Linker link="/showcase" digitalJoin="17" />
+      <Linker link="/audiosys" digitalJoin="10" />
+      <Linker link="/presswitcher" digitalJoin="11" />
+      <Linker link="/bluray" digitalJoin="12" />
+      <Linker link="/displays" digitalJoin="13" />
+      <Linker link="/camera" digitalJoin="14" />
+      <Linker link="/intercom" digitalJoin="15" />
+      <Linker link="/recording" digitalJoin="16" />
     </>
   );
 };

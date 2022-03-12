@@ -26,7 +26,7 @@ const PresSwitcher = (props) => {
           }}
         >
           <Box sx={{ m: "15px" }}>
-            <Header title={"Presentation Switcher"} />
+            <Header title={"Stage Video Inputs"} />
           </Box>
           <Box sx={{ fontSize: "12px", mb: "5px" }}>Controls here...</Box>
         </Box>

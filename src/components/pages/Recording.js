@@ -26,7 +26,7 @@ const Recording = (props) => {
           }}
         >
           <Box sx={{ m: "15px" }}>
-            <Header title={"Recording Controls"} />
+            <Header title={"Video & Audio Recorders"} />
           </Box>
           <Box sx={{ fontSize: "12px", mb: "5px" }}>Controls here...</Box>
         </Box>
