@@ -1,3 +1,9 @@
 .hideThumb .MuiSlider-thumb {
-    visibility: hidden;
-  }
+  visibility: hidden;
+}
+.sizeRail .MuiSlider-rail {
+  width: 10px !important;
+}
+.sizeTrack .MuiSlider-track {
+  width: 10px !important;
+}

@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import Slider from "@mui/material/Slider";
 import { useAnalogState, usePublishAnalog } from "../imports/CrComLibHook";
 
-const SliderVertical = ({ analogJoin = "0", styleClass = "" }) => {
+const SliderVertical = ({ analogJoin = "0", styleClass = "", marks = []}) => {
   const [barValue, setbarValue] = useState("25");
   const [moving, setMoving] = useState(false);
   var movingTimeout;
@@ -44,6 +44,7 @@ const SliderVertical = ({ analogJoin = "0", styleClass = "" }) => {
         value={isNaN(parseInt(barValue, 10)) ? 10 : parseInt(barValue, 10)}
         onChange={handleChange}
         onChangeCommitted={handleCommitted}
+        marks={marks}
       />
   
   );
@@ -52,6 +53,7 @@ const SliderVertical = ({ analogJoin = "0", styleClass = "" }) => {
 SliderVertical.propTypes = {
   analogJoin: PropTypes.string,
   class: PropTypes.string,
+  marks: PropTypes.array,
 };
 
 export default SliderVertical;

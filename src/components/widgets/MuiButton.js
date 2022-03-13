@@ -25,7 +25,9 @@ const MuiButton = ({
   serialJoin = "0",
   digitalPulseTime = 0,
   eventType = "click",
-  ripple = false,
+  disableRipple = false,
+  butRadius = 5,
+  hoverColor = "",
 }) => {
   const [style, styleState] = useState({ value: "primary" });
   const [dynamicText, dynamicTextState] = useState("");
@@ -54,6 +56,10 @@ const MuiButton = ({
     button: {
       textTransform: "none",
       lineHeight: "15px",
+      borderRadius: butRadius,
+      "&:hover": {
+        backgroundColor: hoverColor,
+      },
       //add additional styling here if needed
     },
   });
@@ -69,7 +75,7 @@ const MuiButton = ({
           style={addStyle}
           className={classes.button}
           onClick={handleClick}
-          disableRipple={ripple}
+          disableRipple={disableRipple}
         >
           <Box
             sx={{
@@ -116,7 +122,7 @@ const MuiButton = ({
           onMouseUp={handleTouchUp}
           onTouchStart={handleTouchDown}
           onTouchEnd={handleTouchUp}
-          disableRipple={ripple}
+          disableRipple={disableRipple}
         >
           <Box
             sx={{
@@ -168,6 +174,8 @@ MuiButton.propTypes = {
   digitalPulseTime: PropTypes.number,
   eventType: PropTypes.string,
   ripple: PropTypes.bool,
+  butRadius: PropTypes.number,
+  hoverColor: PropTypes.string,
 };
 
 export default MuiButton;
