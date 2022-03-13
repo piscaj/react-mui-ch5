@@ -4,7 +4,8 @@ import MuiButton from "../widgets/MuiButton";
 import {
   faCircleArrowUp,
   faCircleArrowDown,
-  faVolumeXmark,
+  faVolume,
+  faVolumeSlash,
 } from "@fortawesome/pro-duotone-svg-icons";
 import "../../assets/scss/AdvLevel.scss";
 
@@ -64,9 +65,11 @@ function AdvLevel() {
           >
             <Box sx={{ p: "3px" }}>
               <MuiButton
+                digitalJoin="20"
                 butRadius={37}
                 muiVariant="text"
-                faIcon={faCircleArrowUp}
+                faIconInactive={faCircleArrowUp}
+                faIconActive={faCircleArrowUp}
                 faSize={"4x"}
                 addStyle={{
                   maxWidth: "75px",
@@ -75,13 +78,16 @@ function AdvLevel() {
                   minHeight: "75px",
                 }}
                 hoverColor={"inherit"}
+                eventType={"press"}
               />
             </Box>
             <Box sx={{ p: "3px" }}>
               <MuiButton
+                digitalJoin="21"
                 butRadius={37}
                 muiVariant="text"
-                faIcon={faCircleArrowDown}
+                faIconInactive={faCircleArrowDown}
+                faIconActive={faCircleArrowDown}
                 faSize={"4x"}
                 addStyle={{
                   maxWidth: "75px",
@@ -90,6 +96,7 @@ function AdvLevel() {
                   minHeight: "75px",
                 }}
                 hoverColor={"inherit"}
+                eventType={"press"}
               />
             </Box>
           </Box>
@@ -126,13 +133,16 @@ function AdvLevel() {
           </Box>
           <Box sx={{ p: "3px" }}>
             <MuiButton
-              faIcon={faVolumeXmark}
+              digitalJoin="22"
+              text="Mute"
+              faIconInactive={faVolume}
+              faIconActive={faVolumeSlash}
               faSize={"2x"}
               addStyle={{
                 maxWidth: "100px",
-                maxHeight: "50px",
+                maxHeight: "55px",
                 minWidth: "100px",
-                minHeight: "50px",
+                minHeight: "55px",
               }}
               hoverColor={"inherit"}
             />

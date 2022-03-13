@@ -17,7 +17,8 @@ const MuiButton = ({
   muiColorFeedback = "secondary",
   muiVariant = "outlined",
   addStyle = {},
-  faIcon,
+  faIconInactive,
+  faIconActive,
   faClass,
   faSize,
   idName,
@@ -81,24 +82,39 @@ const MuiButton = ({
             sx={{
               display: "flex",
               flexDirection: "column",
-              flexWrap: "nowrap",
+              flexWrap: "wrap",
               alignItems: "center",
+              justifyContent: "center",
               overflow: "hidden",
             }}
           >
-            {faIcon ? (
+            {!digitalState && faIconInactive ? (
               <Box
                 sx={{
                   p: "2.5px",
                 }}
               >
                 <FontAwesomeIcon
-                  icon={faIcon}
+                  icon={faIconInactive}
                   size={faSize}
                   className={faClass}
                 />
               </Box>
             ) : undefined}
+            {digitalState && faIconActive ? (
+              <Box
+                sx={{
+                  p: "2.5px",
+                }}
+              >
+                <FontAwesomeIcon
+                  icon={faIconActive}
+                  size={faSize}
+                  className={faClass}
+                />
+              </Box>
+            ) : undefined}
+
             {text === "" && dynamicText === "" ? undefined : (
               <Box
                 sx={{
@@ -128,19 +144,33 @@ const MuiButton = ({
             sx={{
               display: "flex",
               flexDirection: "column",
-              flexWrap: "nowrap",
+              flexWrap: "wrap",
               alignItems: "center",
+              justifyContent: "center",
               overflow: "hidden",
             }}
           >
-            {faIcon ? (
+            {!digitalState && faIconInactive ? (
               <Box
                 sx={{
                   p: "2.5px",
                 }}
               >
                 <FontAwesomeIcon
-                  icon={faIcon}
+                  icon={faIconInactive}
+                  size={faSize}
+                  className={faClass}
+                />
+              </Box>
+            ) : undefined}
+            {digitalState && faIconActive ? (
+              <Box
+                sx={{
+                  p: "2.5px",
+                }}
+              >
+                <FontAwesomeIcon
+                  icon={faIconActive}
                   size={faSize}
                   className={faClass}
                 />
@@ -149,7 +179,7 @@ const MuiButton = ({
             {text === "" && dynamicText === "" ? undefined : (
               <Box
                 sx={{
-                  p: "2.5px",
+                 // p: "2.5px",
                 }}
               >
                 {dynamicText === "" ? text : dynamicText}
@@ -168,7 +198,8 @@ MuiButton.propTypes = {
   muiColorFeedback: PropTypes.string,
   muiVariant: PropTypes.string,
   addStyle: PropTypes.object,
-  faIcon: PropTypes.object,
+  faIconInactive: PropTypes.object,
+  faIconActive: PropTypes.object,
   digitalJoin: PropTypes.string,
   serialJoin: PropTypes.string,
   digitalPulseTime: PropTypes.number,
