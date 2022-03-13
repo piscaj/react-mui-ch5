@@ -32,6 +32,7 @@ import Box from "@mui/material/Box";
 import MenuLeft from "./widgets/MenuLeft";
 import { DriveLinks, DriveRoutes } from "./widgets/DrivePages";
 import SliderHorizontal from "./widgets/SliderHorizontal";
+import "../assets/scss/AdvLevel.scss";
 
 function Main() {
   const [connected, setConnected] = useState(false);
@@ -214,7 +215,7 @@ function Main() {
               }}
             >
               <IconButton
-                className="burger-menu"
+                className="burger-menu hideHoverIconButton"
                 onClick={() => menuLeft.current.toggleDrawer()}
               >
                 <FontAwesomeIcon
@@ -246,6 +247,7 @@ function Main() {
             <Box sx={{ ml: "auto", fontSize: "12px" }}>
               {theme.palette.mode} mode
               <IconButton
+                className="hideHoverIconButton"
                 sx={{ mb: "5px", mt: "5px" }}
                 onClick={colorMode.toggleColorMode}
                 color="inherit"
@@ -261,7 +263,7 @@ function Main() {
         </Box>
         <Box className="body">
           <DriveRoutes />
-          
+
           <DriveLinks />
         </Box>
         <Box className="footer">
@@ -278,7 +280,10 @@ function Main() {
                 width: "300px",
               }}
             >
-              <SliderHorizontal analogJoin="1" />
+              <SliderHorizontal
+                analogJoin="1"
+                styleClass="hideSliderThumbHover"
+              />
             </Box>
             <Box
               sx={{

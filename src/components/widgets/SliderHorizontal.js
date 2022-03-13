@@ -6,7 +6,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faVolumeUp, faVolumeDown } from "@fortawesome/pro-duotone-svg-icons";
 import { useAnalogState, usePublishAnalog } from "../imports/CrComLibHook";
 
-const SliderHorizontal = ({ analogJoin = "0", styleClass = "" }) => {
+const SliderHorizontal = ({ analogJoin = "0", styleClass = "", hoverColor = "" }) => {
+
+
   const [barValue, setbarValue] = useState("25");
   const [moving, setMoving] = useState(false);
   var movingTimeout;

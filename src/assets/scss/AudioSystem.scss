@@ -7,3 +7,7 @@
 .sizeTrack .MuiSlider-track {
   width: 10px !important;
 }
+
+.hideSliderThumbHover .MuiSlider-thumb:hover {
+  box-shadow: 0 0 0 10px rgba(0, 0, 0, 0) !important;
+}

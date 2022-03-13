@@ -55,6 +55,10 @@
 .burger-menu:active .icon-burger {
   display: inline;
 }
+.hideHoverIconButton:hover {
+  background-color: inherit !important;
+}
+
 .header {
   position: relative;
 }
