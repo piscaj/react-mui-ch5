@@ -127,11 +127,9 @@ const MuiIconButton = ({
 MuiIconButton.propTypes = {
   muiColor: PropTypes.string,
   muiColorFeedback: PropTypes.string,
-
   addStyle: PropTypes.object,
   faIcon: PropTypes.object,
   digitalJoin: PropTypes.string,
-
   digitalPulseTime: PropTypes.number,
   eventType: PropTypes.string,
   ripple: PropTypes.bool,
