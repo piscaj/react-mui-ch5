@@ -34,7 +34,6 @@ const SliderHorizontal = ({ analogJoin = "0", styleClass = "", hoverColor = "" }
 
   useEffect(() => {
     if (!moving) {
-      console.log(analogState);
       setbarValue(analogState);
     }
     return () => {};

@@ -3,7 +3,7 @@ import Paper from "@mui/material/Paper";
 import Header from "../widgets/Header";
 import Fade from "@mui/material/Fade";
 import "../../assets/scss/AudioSystem.scss";
-import AdvLevel from "../widgets/AdvLevel";
+import SystemAudioLevels from "../widgets/SystemAudioLevels";
 
 const AudioSystem = (props) => {
   return (
@@ -31,7 +31,7 @@ const AudioSystem = (props) => {
             <Header title={"Audio Power and Levels"} />
           </Box>
           <Box>
-            <AdvLevel />
+          <SystemAudioLevels/>
           </Box>
         </Box>
       </Paper>

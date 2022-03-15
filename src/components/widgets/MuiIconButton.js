@@ -77,13 +77,20 @@ const MuiIconButton = ({
                 className={faClass}
               />
             </Box>
-          ) : (
-            <FontAwesomeIcon
-              icon={faIconActive}
-              size={faSize}
-              className={faClass}
-            />
-          )}
+          ) : undefined}
+          {digitalState && faIconActive ? (
+            <Box
+              sx={{
+                p: "2.5px",
+              }}
+            >
+              <FontAwesomeIcon
+                icon={faIconActive}
+                size={faSize}
+                className={faClass}
+              />
+            </Box>
+          ) : undefined}
         </IconButton>
       ) : undefined}
       {eventType === "press" ? (

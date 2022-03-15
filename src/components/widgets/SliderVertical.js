@@ -29,7 +29,6 @@ const SliderVertical = ({ analogJoin = "0", styleClass = "", marks = []}) => {
 
   useEffect(() => {
     if (!moving) {
-      console.log(analogState);
       setbarValue(analogState);
     }
     return () => {};

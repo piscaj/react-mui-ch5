@@ -135,13 +135,15 @@ function AdvLevel() {
           >
             <Box sx={{ p: "5px" }}>
               <MuiButton
-                text="0 db"
+                serialJoin="2"
+                text="0db"
                 muiVariant="text"
                 addStyle={{
                   maxWidth: "100px",
-                  maxHeight: "35px",
+                  maxHeight: "40px",
                   minWidth: "100px",
-                  minHeight: "35px",
+                  minHeight: "40px",
+                  fontSize: "24px",
                 }}
                 hoverColor={"transparent"}
                 disableRipple={true}
