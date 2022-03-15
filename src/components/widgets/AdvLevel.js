@@ -1,9 +1,12 @@
 import Box from "@mui/material/Box";
+import Card from "@mui/material/Card";
+import Typography from "@mui/material/Typography";
 import SliderVertical from "../widgets/SliderVertical";
 import MuiButton from "../widgets/MuiButton";
+import MuiIconButton from "../widgets/MuiIconButton";
 import {
-  faCircleArrowUp,
-  faCircleArrowDown,
+  faPlus,
+  faMinus,
   faVolume,
   faVolumeSlash,
 } from "@fortawesome/pro-duotone-svg-icons";
@@ -26,91 +29,29 @@ function AdvLevel() {
   ];
 
   return (
-    <Box
+    <Card
+      variant="outlined"
       sx={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        overflow: "hidden",
+        textAlign: "center",
+        position: "relative",
+        width: "165px",
       }}
     >
       <Box
         sx={{
           display: "flex",
-          flexDirection: "row",
-          alignItems: "center",
-          mb: "10px",
-        }}
-      >
-        Level Control
-      </Box>
-      <Box
-        sx={{
-          display: "flex",
           flexDirection: "column",
+          alignItems: "center",
+          overflow: "hidden",
         }}
       >
         <Box
           sx={{
-            display: "flex",
-            flexDirection: "row",
-            alignItems: "center",
+            p: "5px",
+            mt: "2px",
           }}
         >
-          <Box
-            sx={{
-              display: "flex",
-              flexDirection: "column",
-            }}
-          >
-            <Box sx={{ p: "3px" }}>
-              <MuiButton
-                digitalJoin="20"
-                butRadius={37}
-                muiVariant="text"
-                faIconInactive={faCircleArrowUp}
-                faIconActive={faCircleArrowUp}
-                faSize={"4x"}
-                addStyle={{
-                  maxWidth: "75px",
-                  maxHeight: "75px",
-                  minWidth: "75px",
-                  minHeight: "75px",
-                }}
-                hoverColor={"inherit"}
-                eventType={"press"}
-              />
-            </Box>
-            <Box sx={{ p: "3px" }}>
-              <MuiButton
-                digitalJoin="21"
-                butRadius={37}
-                muiVariant="text"
-                faIconInactive={faCircleArrowDown}
-                faIconActive={faCircleArrowDown}
-                faSize={"4x"}
-                addStyle={{
-                  maxWidth: "75px",
-                  maxHeight: "75px",
-                  minWidth: "75px",
-                  minHeight: "75px",
-                }}
-                hoverColor={"inherit"}
-                eventType={"press"}
-              />
-            </Box>
-          </Box>
-          <Box
-            sx={{
-              height: "185px",
-            }}
-          >
-            <SliderVertical
-              analogJoin="1"
-              marks={marks}
-              styleClass="hideThumb sizeTrack sizeRail"
-            />
-          </Box>
+          <Typography variant="h6">Stage</Typography>
         </Box>
         <Box
           sx={{
@@ -118,38 +59,115 @@ function AdvLevel() {
             flexDirection: "column",
           }}
         >
-          <Box sx={{ p: "3px" }}>
-            <MuiButton
-              text="0 db"
-              muiVariant="text"
-              addStyle={{
-                maxWidth: "100px",
-                maxHeight: "35px",
-                minWidth: "100px",
-                minHeight: "35px",
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "row",
+              alignItems: "center",
+            }}
+          >
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: "column",
               }}
-              hoverColor={"inherit"}
-            />
+            >
+              <Box sx={{ p: "3px", ml: "3px" }}>
+                <MuiIconButton
+                  digitalJoin="20"
+                  butRadius={8}
+                  faIconInactive={faPlus}
+                  faSize={"3x"}
+                  addStyle={{
+                    maxWidth: "75px",
+                    maxHeight: "75px",
+                    minWidth: "75px",
+                    minHeight: "75px",
+                  }}
+                  hoverColor={"transparent"}
+                  eventType={"press"}
+                />
+              </Box>
+              <Box sx={{ p: "3px" }}>
+                <MuiIconButton
+                  digitalJoin="21"
+                  butRadius={8}
+                  faIconInactive={faMinus}
+                  faSize={"3x"}
+                  addStyle={{
+                    maxWidth: "75px",
+                    maxHeight: "75px",
+                    minWidth: "75px",
+                    minHeight: "75px",
+                  }}
+                  hoverColor={"transparent"}
+                  eventType={"press"}
+                />
+              </Box>
+            </Box>
+            <Box
+              sx={{
+                position: "relative",
+                width: "65px",
+                height: "185px",
+              }}
+            >
+              <Box
+                sx={{
+                  position: "absolute",
+                  height: "185px",
+                  right: "-10px",
+                }}
+              >
+                <SliderVertical
+                  analogJoin="1"
+                  marks={marks}
+                  styleClass="hideThumb sizeTrack sizeRail"
+                />
+              </Box>
+            </Box>
           </Box>
-          <Box sx={{ p: "3px" }}>
-            <MuiButton
-              digitalJoin="22"
-              text="Mute"
-              faIconInactive={faVolume}
-              faIconActive={faVolumeSlash}
-              faSize={"2x"}
-              addStyle={{
-                maxWidth: "100px",
-                maxHeight: "55px",
-                minWidth: "100px",
-                minHeight: "55px",
-              }}
-              hoverColor={"inherit"}
-            />
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+            }}
+          >
+            <Box sx={{ p: "5px" }}>
+              <MuiButton
+                text="0 db"
+                muiVariant="text"
+                addStyle={{
+                  maxWidth: "100px",
+                  maxHeight: "35px",
+                  minWidth: "100px",
+                  minHeight: "35px",
+                }}
+                hoverColor={"transparent"}
+                disableRipple={true}
+              />
+            </Box>
+            <Box sx={{ p: "5px", mb: "6px" }}>
+              <MuiButton
+                digitalJoin="22"
+                text="Mute"
+                muiVariant="text"
+                faIconInactive={faVolume}
+                faIconActive={faVolumeSlash}
+                faSize={"3x"}
+                addStyle={{
+                  maxWidth: "135px",
+                  maxHeight: "60px",
+                  minWidth: "135px",
+                  minHeight: "60px",
+                }}
+                hoverColor={"transparent"}
+              />
+            </Box>
           </Box>
         </Box>
       </Box>
-    </Box>
+    </Card>
   );
 }
 

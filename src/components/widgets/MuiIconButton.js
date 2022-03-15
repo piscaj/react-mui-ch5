@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
-import Button from "@mui/material/Button";
+import IconButton from "@mui/material/IconButton";
 import Box from "@mui/material/Box";
 import { makeStyles } from "@mui/styles";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -8,14 +8,11 @@ import {
   useDigitalState,
   usePublishDigital,
   usePublishDigitalLatch,
-  useStringState,
 } from "../imports/CrComLibHook";
 
-const MuiButton = ({
-  text,
+const MuiIconButton = ({
   muiColor = "primary",
   muiColorFeedback = "secondary",
-  muiVariant = "outlined",
   addStyle = {},
   faIconInactive,
   faIconActive,
@@ -23,7 +20,6 @@ const MuiButton = ({
   faSize,
   idName,
   digitalJoin = "0",
-  serialJoin = "0",
   digitalPulseTime = 0,
   eventType = "click",
   disableRipple = false,
@@ -31,9 +27,7 @@ const MuiButton = ({
   hoverColor = "",
 }) => {
   const [style, styleState] = useState({ value: "primary" });
-  const [dynamicText, dynamicTextState] = useState("");
   const digitalState = useDigitalState(digitalJoin);
-  const serialState = useStringState(serialJoin);
   const handleClick = usePublishDigital(digitalJoin, digitalPulseTime);
   const handleTouchDown = usePublishDigitalLatch(digitalJoin, true);
   const handleTouchUp = usePublishDigitalLatch(digitalJoin, false);
@@ -46,12 +40,6 @@ const MuiButton = ({
 
     return () => {};
   }, [digitalState, muiColor, muiColorFeedback]);
-
-  //Serial state feedback
-  useEffect(() => {
-    dynamicTextState(serialState);
-    return () => {};
-  }, [serialState]);
 
   const useStyles = makeStyles({
     button: {
@@ -69,61 +57,38 @@ const MuiButton = ({
   return (
     <div>
       {eventType === "click" ? (
-        <Button
+        <IconButton
           id={idName}
-          variant={muiVariant}
           color={style.value}
           style={addStyle}
           className={classes.button}
           onClick={handleClick}
           disableRipple={disableRipple}
         >
-          <Box
-            sx={{
-              display: "flex",
-              flexDirection: "column",
-              flexWrap: "wrap",
-              alignItems: "center",
-              justifyContent: "center",
-              overflow: "hidden",
-            }}
-          >
-            {!digitalState && faIconInactive ? (
-              <Box
-                sx={{
-                  p: "2.5px",
-                }}
-              >
-                <FontAwesomeIcon
-                  icon={faIconInactive}
-                  size={faSize}
-                  className={faClass}
-                />
-              </Box>
-            ) : (
+          {!digitalState && faIconInactive ? (
+            <Box
+              sx={{
+                p: "2.5px",
+              }}
+            >
               <FontAwesomeIcon
-                icon={faIconActive}
+                icon={faIconInactive}
                 size={faSize}
                 className={faClass}
               />
-            )}
-
-            {text === "" && dynamicText === "" ? undefined : (
-              <Box
-                sx={{
-                  p: "2.5px",
-                }}
-              >
-                {dynamicText === "" ? text : dynamicText}
-              </Box>
-            )}
-          </Box>
-        </Button>
+            </Box>
+          ) : (
+            <FontAwesomeIcon
+              icon={faIconActive}
+              size={faSize}
+              className={faClass}
+            />
+          )}
+        </IconButton>
       ) : undefined}
       {eventType === "press" ? (
-        <Button
+        <IconButton
           id={idName}
-          variant={muiVariant}
           color={style.value}
           style={addStyle}
           className={classes.button}
@@ -133,56 +98,33 @@ const MuiButton = ({
           onTouchEnd={handleTouchUp}
           disableRipple={disableRipple}
         >
-          <Box
-            sx={{
-              display: "flex",
-              flexDirection: "column",
-              flexWrap: "wrap",
-              alignItems: "center",
-              justifyContent: "center",
-              overflow: "hidden",
-            }}
-          >
-            {faIconInactive ? (
-              <Box
-                sx={{
-                  p: "2.5px",
-                }}
-              >
-                <FontAwesomeIcon
-                  icon={faIconInactive}
-                  size={faSize}
-                  className={faClass}
-                />
-              </Box>
-            ) : undefined}
-            {text === "" && dynamicText === "" ? undefined : (
-              <Box
-                sx={
-                  {
-                    // p: "2.5px",
-                  }
-                }
-              >
-                {dynamicText === "" ? text : dynamicText}
-              </Box>
-            )}
-          </Box>
-        </Button>
+          {faIconInactive ? (
+            <Box
+              sx={{
+                p: "2.5px",
+              }}
+            >
+              <FontAwesomeIcon
+                icon={faIconInactive}
+                size={faSize}
+                className={faClass}
+              />
+            </Box>
+          ) : undefined}
+        </IconButton>
       ) : undefined}
     </div>
   );
 };
 
-MuiButton.propTypes = {
-  text: PropTypes.string,
+MuiIconButton.propTypes = {
   muiColor: PropTypes.string,
   muiColorFeedback: PropTypes.string,
-  muiVariant: PropTypes.string,
+
   addStyle: PropTypes.object,
   faIcon: PropTypes.object,
   digitalJoin: PropTypes.string,
-  serialJoin: PropTypes.string,
+
   digitalPulseTime: PropTypes.number,
   eventType: PropTypes.string,
   ripple: PropTypes.bool,
@@ -190,4 +132,4 @@ MuiButton.propTypes = {
   hoverColor: PropTypes.string,
 };
 
-export default MuiButton;
+export default MuiIconButton;
