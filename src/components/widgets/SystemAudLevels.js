@@ -127,6 +127,7 @@ function SystemAudLevels() {
       sx={{ flexWrap: "noWrap" }}
       divider={<Divider orientation="vertical" flexItem />}
     >
+      <Divider orientation="vertical" flexItem />
       <Stack
         direction="row"
         sx={{ overflow: "hidden", width: "250px", p: "10px" }}

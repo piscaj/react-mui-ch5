@@ -1,10 +1,17 @@
 import Box from "@mui/material/Box";
+import Stack from "@mui/material/Stack";
 import Paper from "@mui/material/Paper";
+import { styled } from "@mui/material/styles";
 import Header from "../widgets/Header";
 import "../../assets/scss/AudioSystem.scss";
 import SystemAudLevels from "../widgets/SystemAudLevels";
 
 const AudioSystem = (props) => {
+  const Item = styled(Paper)(({ theme }) => ({
+    backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
+    padding: theme.spacing(3),
+  }));
+
   return (
     <Paper
       sx={{
@@ -17,19 +24,17 @@ const AudioSystem = (props) => {
         overflow: "scroll",
       }}
     >
-      <Box
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          overflow: "hidden",
-        }}
-      >
+      <Stack direction="column" alignItems="center" justifyContent="center" sx={{}}>
         <Box sx={{ m: "15px" }}>
           <Header title={"Audio Power and Levels"} />
         </Box>
-        <SystemAudLevels />
-      </Box>
+        <Stack direction="row" spacing={2} justifyContent="center" alignItems="center" sx={{}}>
+          <Box>
+            <SystemAudLevels />
+          </Box>
+          <Box>SOME OTHER STUFF</Box>
+        </Stack>
+      </Stack>
     </Paper>
   );
 };
