@@ -1,124 +1,19 @@
-import AdvLevel from "./AdvLevel";
 import { useSpringCarousel } from "react-spring-carousel";
 import "../../assets/scss/SystemAudioLevels.scss";
 import Stack from "@mui/material/Stack";
-import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import ButtonGroup from "@mui/material/ButtonGroup";
 import Divider from "@mui/material/Divider";
+import { carouselItems } from "../imports/CarouselItems";
+import { buttons } from "../imports/CarouselButtons";
 
 function SystemAudLevels() {
-  const buttons = [
-    <Button
-      onClick={() => {
-        slideToItem("program");
-      }}
-    >
-      Main Program
-    </Button>,
-    <Button
-      onClick={() => {
-        slideToItem("mic1");
-      }}
-    >
-      Stage Mic 1
-    </Button>,
-    <Button
-      onClick={() => {
-        slideToItem("mic2");
-      }}
-    >
-      Stage Mic 2
-    </Button>,
-    <Button
-      onClick={() => {
-        slideToItem("wireless1");
-      }}
-    >
-      Wireless 1
-    </Button>,
-    <Button
-      onClick={() => {
-        slideToItem("wireless2");
-      }}
-    >
-      Wireless 2
-    </Button>,
-  ];
+  const items = carouselItems.items;
+
+  
 
   const { carouselFragment, slideToItem } = useSpringCarousel({
-    items: [
-      {
-        id: "program",
-        renderItem: (
-          <Box
-            sx={{
-              display: "block",
-              ml: "auto",
-              mr: "auto",
-            }}
-          >
-            <AdvLevel />
-          </Box>
-        ),
-      },
-      {
-        id: "mic1",
-        renderItem: (
-          <Box
-            sx={{
-              display: "block",
-              ml: "auto",
-              mr: "auto",
-            }}
-          >
-            <AdvLevel />
-          </Box>
-        ),
-      },
-      {
-        id: "mic2",
-        renderItem: (
-          <Box
-            sx={{
-              display: "block",
-              ml: "auto",
-              mr: "auto",
-            }}
-          >
-            <AdvLevel />
-          </Box>
-        ),
-      },
-      {
-        id: "wireless1",
-        renderItem: (
-          <Box
-            sx={{
-              display: "block",
-              ml: "auto",
-              mr: "auto",
-            }}
-          >
-            <AdvLevel />
-          </Box>
-        ),
-      },
-      {
-        id: "wireless2",
-        renderItem: (
-          <Box
-            sx={{
-              display: "block",
-              ml: "auto",
-              mr: "auto",
-            }}
-          >
-            <AdvLevel />
-          </Box>
-        ),
-      },
-    ],
+    items,
   });
 
   return (
