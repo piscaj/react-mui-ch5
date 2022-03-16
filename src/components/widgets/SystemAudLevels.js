@@ -5,50 +5,57 @@ import Stack from "@mui/material/Stack";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import ButtonGroup from "@mui/material/ButtonGroup";
+import Divider from "@mui/material/Divider";
 
 function SystemAudLevels() {
   const buttons = [
     <Button
       onClick={() => {
-        slideToItem("item-1");
+        slideToItem("program");
       }}
     >
       Main Program
     </Button>,
-        <Button
-        onClick={() => {
-          slideToItem("item-2");
-        }}
-      >
-        Stage Mic 1
-      </Button>,
-       <Button
-       onClick={() => {
-         slideToItem("item-3");
-       }}
-     >
-       Stage Mic 2
-     </Button>,
-         <Button
-         onClick={() => {
-           slideToItem("item-4");
-         }}
-       >
-         Wireless 1
-       </Button>,
+    <Button
+      onClick={() => {
+        slideToItem("mic1");
+      }}
+    >
+      Stage Mic 1
+    </Button>,
+    <Button
+      onClick={() => {
+        slideToItem("mic2");
+      }}
+    >
+      Stage Mic 2
+    </Button>,
+    <Button
+      onClick={() => {
+        slideToItem("wireless1");
+      }}
+    >
+      Wireless 1
+    </Button>,
+    <Button
+      onClick={() => {
+        slideToItem("wireless2");
+      }}
+    >
+      Wireless 2
+    </Button>,
   ];
 
   const { carouselFragment, slideToItem } = useSpringCarousel({
     items: [
       {
-        id: "item-1",
+        id: "program",
         renderItem: (
           <Box
             sx={{
               display: "block",
               ml: "auto",
               mr: "auto",
-              textAlign: "center",
             }}
           >
             <AdvLevel />
@@ -56,14 +63,13 @@ function SystemAudLevels() {
         ),
       },
       {
-        id: "item-2",
+        id: "mic1",
         renderItem: (
           <Box
             sx={{
               display: "block",
               ml: "auto",
               mr: "auto",
-              textAlign: "center",
             }}
           >
             <AdvLevel />
@@ -71,14 +77,13 @@ function SystemAudLevels() {
         ),
       },
       {
-        id: "item-3",
+        id: "mic2",
         renderItem: (
           <Box
             sx={{
               display: "block",
               ml: "auto",
               mr: "auto",
-              textAlign: "center",
             }}
           >
             <AdvLevel />
@@ -86,14 +91,13 @@ function SystemAudLevels() {
         ),
       },
       {
-        id: "item-4",
+        id: "wireless1",
         renderItem: (
           <Box
             sx={{
               display: "block",
               ml: "auto",
               mr: "auto",
-              textAlign: "center",
             }}
           >
             <AdvLevel />
@@ -101,14 +105,13 @@ function SystemAudLevels() {
         ),
       },
       {
-        id: "item-5",
+        id: "wireless2",
         renderItem: (
           <Box
             sx={{
               display: "block",
               ml: "auto",
               mr: "auto",
-              textAlign: "center",
             }}
           >
             <AdvLevel />
@@ -119,19 +122,21 @@ function SystemAudLevels() {
   });
 
   return (
-    <>
-      <Stack direction="row">
-        <Stack
-          direction="row"
-          sx={{ overflow: "hidden", width: "250px", p: "10px" }}
-        >
-          {carouselFragment}
-        </Stack>
-        <ButtonGroup orientation="vertical" variant="text">
-          {buttons}
-        </ButtonGroup>
+    <Stack
+      direction="row"
+      sx={{ flexWrap: "noWrap" }}
+      divider={<Divider orientation="vertical" flexItem />}
+    >
+      <Stack
+        direction="row"
+        sx={{ overflow: "hidden", width: "250px", p: "10px" }}
+      >
+        {carouselFragment}
       </Stack>
-    </>
+      <ButtonGroup orientation="vertical" variant="text">
+        {buttons}
+      </ButtonGroup>
+    </Stack>
   );
 }
 
