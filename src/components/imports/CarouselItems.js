@@ -4,7 +4,7 @@ import Box from "@mui/material/Box";
 export const carouselItems = {
     items: [
       {
-        id: "program",
+        id: "1",
         renderItem: (
           <Box className="center-content">
             <AdvLevel />
@@ -12,7 +12,7 @@ export const carouselItems = {
         ),
       },
       {
-        id: "mic1",
+        id: "2",
         renderItem: (
           <Box className="center-content">
             <AdvLevel />
@@ -20,15 +20,7 @@ export const carouselItems = {
         ),
       },
       {
-        id: "mic2",
-        renderItem: (
-          <Box className="center-contentt">
-            <AdvLevel />
-          </Box>
-        ),
-      },
-      {
-        id: "wireless1",
+        id: "3",
         renderItem: (
           <Box className="center-content">
             <AdvLevel />
@@ -36,7 +28,15 @@ export const carouselItems = {
         ),
       },
       {
-        id: "wireless2",
+        id: "4",
+        renderItem: (
+          <Box className="center-content">
+            <AdvLevel />
+          </Box>
+        ),
+      },
+      {
+        id: "5",
         renderItem: (
           <Box className="center-content">
             <AdvLevel />

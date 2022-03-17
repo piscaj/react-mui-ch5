@@ -4,7 +4,7 @@ import Slider from "@mui/material/Slider";
 import { useAnalogState, usePublishAnalog } from "../imports/CrComLibHook";
 
 const SliderVertical = ({ analogJoin = "0", styleClass = "", marks = []}) => {
-  const [barValue, setbarValue] = useState("25");
+  const [barValue, setbarValue] = useState(25);
   const [moving, setMoving] = useState(false);
   var movingTimeout;
   const handleCommitted = (event, value) => {
@@ -40,7 +40,7 @@ const SliderVertical = ({ analogJoin = "0", styleClass = "", marks = []}) => {
         className={styleClass}
         orientation="vertical"
         valueLabelDisplay="auto"
-        value={isNaN(parseInt(barValue, 10)) ? 10 : parseInt(barValue, 10)}
+        value={isNaN(parseInt(barValue, 10)) ? 10 : barValue}
         onChange={handleChange}
         onChangeCommitted={handleCommitted}
         marks={marks}
