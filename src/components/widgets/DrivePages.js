@@ -18,7 +18,7 @@ import Recording from "../pages/Recording";
 export const DriveRoutes = () => {
   return (
     <Routes>
-      <Route exact path="/" element={<Logo />} />
+      <Route path="/" element={<Logo />} />
       <Route path="/showcase" element={<ButtonShowcase />} />
       <Route path="/audiosys" element={<AudioSystem />} />
       <Route path="/presswitcher" element={<PresSwitcher />} />
