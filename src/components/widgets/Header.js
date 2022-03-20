@@ -1,13 +1,14 @@
 import Typography from "@mui/material/Typography";
 import PropTypes from "prop-types";
+import Box from "@mui/material/Box";
 
-const Header = ({ title }) => {
+const Header = ({ title, size = "h5", addStyle }) => {
   return (
-    <div>
-      <Typography variant="h5" component="div">
+    <Box sx={addStyle}>
+      <Typography variant={size} component="div">
         {title}
       </Typography>
-    </div>
+    </Box>
   );
 };
 
