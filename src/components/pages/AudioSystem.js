@@ -7,6 +7,7 @@ import "../../assets/scss/AudioSystem.scss";
 import SystemAudLevels from "../widgets/SystemAudLevels";
 
 const AudioSystem = (props) => {
+  
   const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
     padding: theme.spacing(3),
@@ -24,11 +25,22 @@ const AudioSystem = (props) => {
         overflow: "scroll",
       }}
     >
-      <Stack direction="column" alignItems="center" justifyContent="center" sx={{}}>
+      <Stack
+        direction="column"
+        alignItems="center"
+        justifyContent="center"
+        sx={{}}
+      >
         <Box sx={{ m: "15px" }}>
           <Header title={"Audio Power and Levels"} />
         </Box>
-        <Stack direction="row" spacing={2} justifyContent="center" alignItems="center" sx={{}}>
+        <Stack
+          direction="row"
+          spacing={2}
+          justifyContent="center"
+          alignItems="center"
+          sx={{}}
+        >
           <Box>
             <SystemAudLevels />
           </Box>
