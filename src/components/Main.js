@@ -4,7 +4,7 @@ import WebXPanel, {
   WebXPanelEvents,
 } from "@crestron/ch5-webxpanel/dist/cjs/index.js";
 import * as CrComLib from "@crestron/ch5-crcomlib/build_bundles/cjs/cr-com-lib";
-
+import useLocalStorage from "../components/imports/local-storage";
 import CssBaseline from "@mui/material/CssBaseline";
 import IconButton from "@mui/material/IconButton";
 import {
@@ -75,7 +75,7 @@ function Main() {
     return () => {};
   }, []);
 
-  //TO DO Run alerts to user based on connection
+  //TO DO Run alerts to user based on connection if needed
   useEffect(() => {
     return () => {};
   }, [connected]);
@@ -87,7 +87,7 @@ function Main() {
     title: "None",
     message: "None",
   });
-  const [mode, setMode] = useState("light");
+  const [mode, setMode] = useLocalStorage("mode", "dark");
   const menuLeft = useRef();
 
   const clearAlert = () => {
