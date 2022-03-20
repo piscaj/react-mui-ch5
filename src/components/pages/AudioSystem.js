@@ -36,19 +36,28 @@ const AudioSystem = (props) => {
           alignItems="center"
           sx={{ flexWrap: "wrap-reverse" }}
         >
-          <Box sx={{ p: "40px", textAlign: "center" }}>
-            <Header title={"Rehearsal Hall Levels"} size={"h6"} addStyle={{mb:"10px"}} />
+          <Box sx={{ p: "30px", textAlign: "center" }}>
+            <Header
+              title={"Rehearsal Hall Levels"}
+              size={"h6"}
+              addStyle={{ mb: "10px" }}
+            />
             <SystemAudLevels />
           </Box>
-          <Box sx={{ p: "40px", textAlign: "center" }}>
-            <Header title={"Amplifiers"} size={"h6"} addStyle={{mb:"10px"}}/>
+          <Stack direction="column" >
+          <Box sx={{ p: "30px", textAlign: "center" }}>
+            <Header
+              title={"Amplifiers"}
+              size={"h6"}
+              addStyle={{ mb: "10px" }}
+            />
             <Stack
               direction="row"
               spacing={2}
               justifyContent="center"
               alignItems="center"
             >
-              <Box sx={{ p: "5px" }}>
+              <Box>
                 <MuiButton
                   text="POWER OFF"
                   muiColor="primary"
@@ -63,7 +72,7 @@ const AudioSystem = (props) => {
                   }}
                 />
               </Box>
-              <Box sx={{ p: "5px" }}>
+              <Box>
                 <MuiButton
                   text="POWER ON"
                   muiColor="primary"
@@ -79,7 +88,62 @@ const AudioSystem = (props) => {
                 />
               </Box>
             </Stack>
-          </Box>
+            </Box>
+            <Box sx={{ p: "30px", textAlign: "center" }}>
+            <Header
+              title={"Audio Presets"}
+              size={"h6"}
+              addStyle={{ mb: "10px" }}
+            />
+            <Stack direction="column" spacing={2}>
+              <Box>
+                <MuiButton
+                  text="PRESET 1"
+                  muiColor="primary"
+                  muiColorFeedback="secondary"
+                  muiVariant="contained"
+                  digitalJoin="1"
+                  addStyle={{
+                    maxWidth: "200px",
+                    maxHeight: "45px",
+                    minWidth: "200px",
+                    minHeight: "45px",
+                  }}
+                />
+              </Box>
+              <Box >
+                <MuiButton
+                  text="PRESET 2"
+                  muiColor="primary"
+                  muiColorFeedback="secondary"
+                  muiVariant="contained"
+                  digitalJoin="2"
+                  addStyle={{
+                    maxWidth: "200px",
+                    maxHeight: "45px",
+                    minWidth: "200px",
+                    minHeight: "45px",
+                  }}
+                />
+              </Box>
+              <Box >
+                <MuiButton
+                  text="PRESET 3"
+                  muiColor="primary"
+                  muiColorFeedback="secondary"
+                  muiVariant="contained"
+                  digitalJoin="2"
+                  addStyle={{
+                    maxWidth: "200px",
+                    maxHeight: "45px",
+                    minWidth: "200px",
+                    minHeight: "45px",
+                  }}
+                />
+              </Box>
+              </Stack>
+            </Box>
+          </Stack>
         </Stack>
       </Stack>
     </Paper>
