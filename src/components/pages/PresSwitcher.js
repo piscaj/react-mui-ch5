@@ -17,8 +17,8 @@ const PresSwitcher = (props) => {
         overflow: "scroll",
       }}
     >
-      <Stack direction="column" alignItems="center" justifyContent="center" sx={{ p: "75px" }}>
-        <Box sx={{ m: "15px" }}>
+      <Stack direction="column" alignItems="center" justifyContent="center" sx={{ p: "60px" }}>
+        <Box sx={{ mb: "25px" }}>
           <Header title={"Stage Video Inputs"} />
         </Box>
         <Stack

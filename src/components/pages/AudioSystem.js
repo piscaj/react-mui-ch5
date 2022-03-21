@@ -8,10 +8,10 @@ import SystemAudLevels from "../widgets/SystemAudLevels";
 import MuiButton from "../widgets/MuiButton";
 
 const AudioSystem = (props) => {
-//  const Item = styled(Paper)(({ theme }) => ({
-//  backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
-//    padding: theme.spacing(3),
-//  }));
+  //  const Item = styled(Paper)(({ theme }) => ({
+  //  backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
+  //    padding: theme.spacing(3),
+  //  }));
 
   return (
     <Paper
@@ -25,8 +25,8 @@ const AudioSystem = (props) => {
         overflow: "scroll",
       }}
     >
-      <Stack direction="column" alignItems="center" sx={{}}>
-        <Box sx={{ m: "15px" }}>
+      <Stack direction="column" alignItems="center" sx={{ p: "35px" }}>
+        <Box sx={{ mb: "5px" }}>
           <Header title={"Audio Power and Levels"} />
         </Box>
         <Stack
