@@ -1,6 +1,8 @@
 import Box from "@mui/material/Box";
+import Stack from "@mui/material/Stack";
 import Paper from "@mui/material/Paper";
 import Header from "../widgets/Header";
+import MuiButton from "../widgets/MuiButton";
 
 const BluRay = (props) => {
   return (
@@ -15,19 +17,11 @@ const BluRay = (props) => {
         overflow: "scroll",
       }}
     >
-      <Box
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          overflow: "hidden",
-        }}
-      >
+      <Stack direction="column" alignItems="center" sx={{}}>
         <Box sx={{ m: "15px" }}>
           <Header title={"Blu-ray Controls"} />
         </Box>
-        <Box sx={{ fontSize: "12px", mb: "5px" }}>Controls here...</Box>
-      </Box>
+      </Stack>
     </Paper>
   );
 };
