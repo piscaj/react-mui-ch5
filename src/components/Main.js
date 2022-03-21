@@ -12,7 +12,6 @@ import {
   ThemeProvider,
   responsiveFontSizes,
 } from "@mui/material//styles";
-import { deepOrange, grey, indigo } from "@mui/material/colors";
 import Backdrop from "@mui/material/Backdrop";
 import CircularProgress from "@mui/material/CircularProgress";
 import Alert from "@mui/material/Alert";
@@ -26,8 +25,7 @@ import {
   faSun,
   faMoon,
 } from "@fortawesome/pro-duotone-svg-icons";
-import logoDark from "../assets/images/logoDark.png";
-import logoLight from "../assets/images/logoLight.png";
+import GHMCLogoSm from "../assets/images/GHMCLogo400.png";
 import Box from "@mui/material/Box";
 import MenuLeft from "./widgets/MenuLeft";
 import { DriveLinks, DriveRoutes } from "./widgets/DrivePages";
@@ -111,35 +109,19 @@ function Main() {
         palette: {
           mode,
           primary: {
-            ...indigo,
-            ...(mode === "light" && {
-              main: indigo[900],
-            }),
+            main: mode === "light" ? "#f7a319" : "#f7a319",
           },
           secondary: {
-            ...deepOrange,
-            ...(mode === "light" && {
-              main: deepOrange[900],
-            }),
+            main: mode === "light" ? "#c3da65" : "#c3da65",
           },
-          ...(mode === "dark" && {
-            primary: {
-              main: indigo[100],
-            },
-            secondary: {
-              main: deepOrange[300],
-            },
-          }),
-          text: {
-            ...(mode === "light"
-              ? {
-                  primary: grey[900],
-                  secondary: grey[800],
-                }
-              : {
-                  primary: "#fff",
-                  secondary: grey[500],
-                }),
+          error: {
+            main: mode === "light" ? "#c72026" : "#c72026",
+          },
+          warning: {
+            main: mode === "light" ? "#0096ff" : "#0096ff",
+          },
+          background: {
+            default: mode === "light" ? "#eaeaea" : "#6f6c6c",
           },
         },
       }),
@@ -238,9 +220,9 @@ function Main() {
               }}
             >
               {theme.palette.mode === "dark" ? (
-                <img src={logoDark} alt="" />
+                <img src={GHMCLogoSm} alt="" />
               ) : (
-                <img src={logoLight} alt="" />
+                <img src={GHMCLogoSm} alt="" />
               )}
             </Box>
 
