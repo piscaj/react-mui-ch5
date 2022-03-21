@@ -17,7 +17,7 @@ const PresSwitcher = (props) => {
         overflow: "scroll",
       }}
     >
-      <Stack direction="column" alignItems="center" justifyContent="center">
+      <Stack direction="column" alignItems="center" justifyContent="center" sx={{ p: "75px" }}>
         <Box sx={{ m: "15px" }}>
           <Header title={"Stage Video Inputs"} />
         </Box>
@@ -35,10 +35,10 @@ const PresSwitcher = (props) => {
               muiVariant="contained"
               digitalJoin="1"
               addStyle={{
-                maxWidth: "150px",
-                maxHeight: "150px",
-                minWidth: "150px",
-                minHeight: "150px",
+                maxWidth: "175px",
+                maxHeight: "175px",
+                minWidth: "175px",
+                minHeight: "175px",
               }}
             />
           </Box>
@@ -50,10 +50,10 @@ const PresSwitcher = (props) => {
               muiVariant="contained"
               digitalJoin="2"
               addStyle={{
-                maxWidth: "150px",
-                maxHeight: "150px",
-                minWidth: "150px",
-                minHeight: "150px",
+                maxWidth: "175px",
+                maxHeight: "175px",
+                minWidth: "175px",
+                minHeight: "175px",
               }}
             />
           </Box>
@@ -65,10 +65,10 @@ const PresSwitcher = (props) => {
               muiVariant="contained"
               digitalJoin="2"
               addStyle={{
-                maxWidth: "150px",
-                maxHeight: "150px",
-                minWidth: "150px",
-                minHeight: "150px",
+                maxWidth: "175px",
+                maxHeight: "175px",
+                minWidth: "175px",
+                minHeight: "175px",
               }}
             />
           </Box>
@@ -80,10 +80,10 @@ const PresSwitcher = (props) => {
               muiVariant="contained"
               digitalJoin="4"
               addStyle={{
-                maxWidth: "150px",
-                maxHeight: "150px",
-                minWidth: "150px",
-                minHeight: "150px",
+                maxWidth: "175px",
+                maxHeight: "175px",
+                minWidth: "175px",
+                minHeight: "175px",
               }}
             />
           </Box>
@@ -95,10 +95,10 @@ const PresSwitcher = (props) => {
               muiVariant="contained"
               digitalJoin="5"
               addStyle={{
-                maxWidth: "150px",
-                maxHeight: "150px",
-                minWidth: "150px",
-                minHeight: "150px",
+                maxWidth: "175px",
+                maxHeight: "175px",
+                minWidth: "175px",
+                minHeight: "175px",
               }}
             />
           </Box>
@@ -110,10 +110,10 @@ const PresSwitcher = (props) => {
               muiVariant="contained"
               digitalJoin="6"
               addStyle={{
-                maxWidth: "150px",
-                maxHeight: "150px",
-                minWidth: "150px",
-                minHeight: "150px",
+                maxWidth: "175px",
+                maxHeight: "175px",
+                minWidth: "175px",
+                minHeight: "175px",
               }}
             />
           </Box>
@@ -125,10 +125,10 @@ const PresSwitcher = (props) => {
               muiVariant="contained"
               digitalJoin="7"
               addStyle={{
-                maxWidth: "150px",
-                maxHeight: "150px",
-                minWidth: "150px",
-                minHeight: "150px",
+                maxWidth: "175px",
+                maxHeight: "175px",
+                minWidth: "175px",
+                minHeight: "175px",
               }}
             />
           </Box>
@@ -140,10 +140,10 @@ const PresSwitcher = (props) => {
               muiVariant="contained"
               digitalJoin="8"
               addStyle={{
-                maxWidth: "150px",
-                maxHeight: "150px",
-                minWidth: "150px",
-                minHeight: "150px",
+                maxWidth: "175px",
+                maxHeight: "175px",
+                minWidth: "175px",
+                minHeight: "175px",
               }}
             />
           </Box>
