@@ -19,6 +19,7 @@ export const DriveRoutes = () => {
   return (
     <Routes>
       <Route path="/" element={<Logo />} />
+      <Route path="/logo" element={<Logo />} />
       <Route path="/showcase" element={<ButtonShowcase />} />
       <Route path="/audiosys" element={<AudioSystem />} />
       <Route path="/presswitcher" element={<PresSwitcher />} />
@@ -45,6 +46,7 @@ export const DriveLinks = () => {
       <Linker link="/camera" digitalJoin="14" />
       <Linker link="/intercom" digitalJoin="15" />
       <Linker link="/recording" digitalJoin="16" />
+      <Linker link="/logo" digitalJoin="9" />
     </>
   );
 };

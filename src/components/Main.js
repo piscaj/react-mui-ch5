@@ -28,6 +28,7 @@ import {
 import GHMCLogoSm from "../assets/images/GHMCLogo400.png";
 import Box from "@mui/material/Box";
 import MenuLeft from "./widgets/MenuLeft";
+import PowerButton from "./widgets/PowerButton";
 import { DriveLinks, DriveRoutes } from "./widgets/DrivePages";
 import "../assets/scss/AdvLevel.scss";
 
@@ -263,7 +264,13 @@ function Main() {
                 ml: "auto",
               }}
             >
-              <div>POWER</div>
+              <PowerButton
+                digitalJoinShow="5"
+                digitalJoin="6"
+                digitalJoinOk="7"
+                digitalJoinCancel="8"
+                themeMode={mode}
+              />
             </Box>
           </Box>
         </Box>
