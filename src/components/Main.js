@@ -29,7 +29,6 @@ import GHMCLogoSm from "../assets/images/GHMCLogo400.png";
 import Box from "@mui/material/Box";
 import MenuLeft from "./widgets/MenuLeft";
 import { DriveLinks, DriveRoutes } from "./widgets/DrivePages";
-import SliderHorizontal from "./widgets/SliderHorizontal";
 import "../assets/scss/AdvLevel.scss";
 
 function Main() {
@@ -109,19 +108,20 @@ function Main() {
         palette: {
           mode,
           primary: {
-            main: mode === "light" ? "#f7a319" : "#f7a319",
+            main: mode === "light" ? "#585852" : "#f7a319",
           },
           secondary: {
             main: mode === "light" ? "#c3da65" : "#c3da65",
           },
           error: {
-            main: mode === "light" ? "#c72026" : "#c72026",
+            main: mode === "light" ? "#f44336" : "#f44336",
           },
           warning: {
             main: mode === "light" ? "#0096ff" : "#0096ff",
           },
           background: {
-            default: mode === "light" ? "#eaeaea" : "#6f6c6c",
+            default: mode === "light" ? "#d8d8d8" : "#6f6c6c",
+            paper: mode === "light" ? "#fff" : "#434343",
           },
         },
       }),
@@ -202,12 +202,12 @@ function Main() {
               >
                 <FontAwesomeIcon
                   icon={faBars}
-                  size="lg"
+                  size="2x"
                   className="icon-bars"
                 />
                 <FontAwesomeIcon
                   icon={faCheeseburger}
-                  size="lg"
+                  size="2x"
                   className="icon-burger"
                 />
               </IconButton>
@@ -215,8 +215,8 @@ function Main() {
             <Box
               className="logo"
               sx={{
-                ml: "5px",
-                mt: "8px",
+                ml: "20px",
+                mt: "5px",
               }}
             >
               {theme.palette.mode === "dark" ? (
@@ -257,16 +257,6 @@ function Main() {
               alignItems: "center",
             }}
           >
-            <Box
-              sx={{
-                width: "300px",
-              }}
-            >
-              <SliderHorizontal
-                analogJoin="1"
-                styleClass="hideSliderThumbHover"
-              />
-            </Box>
             <Box
               sx={{
                 p: "3px",

@@ -154,6 +154,7 @@ function AdvLevel() {
                 digitalJoin="22"
                 text="Mute"
                 muiVariant="text"
+                muiColorFeedback="error"
                 faIconInactive={faVolume}
                 faIconActive={faVolumeSlash}
                 faSize={"3x"}

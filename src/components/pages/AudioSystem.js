@@ -70,6 +70,7 @@ const AudioSystem = (props) => {
                       minWidth: "150px",
                       minHeight: "75px",
                     }}
+              
                   />
                 </Box>
                 <Box>

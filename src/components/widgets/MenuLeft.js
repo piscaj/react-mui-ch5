@@ -27,7 +27,7 @@ const MenuLeft = forwardRef((props, ref) => {
   const Puller = styled(Box)(({ theme }) => ({
     width: 6,
     height: 30,
-    backgroundColor: theme.palette.mode === "light" ? grey[400] : grey[200],
+    backgroundColor: theme.palette.mode === "light" ? grey[900] : grey[200],
     borderRadius: 3,
     top: "45%",
     position: "absolute",

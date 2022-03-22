@@ -45,6 +45,8 @@ function SystemAudLevels() {
       key="1"
       color={numFb === 1 ? "secondary" : "primary"}
       onClick={() => handleClick(1)}
+      variant="contained"
+      disableElevation
     >
       Main Program
     </Button>,
@@ -52,6 +54,8 @@ function SystemAudLevels() {
       key="2"
       color={numFb === 2 ? "secondary" : "primary"}
       onClick={() => handleClick(2)}
+      variant="contained"
+      disableElevation
     >
       Stage Mic 1
     </Button>,
@@ -59,6 +63,8 @@ function SystemAudLevels() {
       key="3"
       color={numFb === 3 ? "secondary" : "primary"}
       onClick={() => handleClick(3)}
+      variant="contained"
+      disableElevation
     >
       Stage Mic 2
     </Button>,
@@ -66,6 +72,8 @@ function SystemAudLevels() {
       key="4"
       color={numFb === 4 ? "secondary" : "primary"}
       onClick={() => handleClick(4)}
+      variant="contained"
+      disableElevation
     >
       Wireless 1
     </Button>,
@@ -73,6 +81,8 @@ function SystemAudLevels() {
       key="5"
       color={numFb === 5 ? "secondary" : "primary"}
       onClick={() => handleClick(5)}
+      variant="contained"
+      disableElevation
     >
       Wireless 2
     </Button>,
@@ -84,16 +94,19 @@ function SystemAudLevels() {
       sx={{ flexWrap: "noWrap" }}
       divider={<Divider orientation="vertical" flexItem />}
     >
-      <Divider orientation="vertical" flexItem />
+      <Stack direction="column" justifyContent="center" alignItems="center">
+        <ButtonGroup orientation="vertical" variant="text">
+          {buttons}
+        </ButtonGroup>
+      </Stack>
+
       <Stack
         direction="row"
         sx={{ overflow: "hidden", width: "250px", p: "10px" }}
       >
         {carouselFragment}
       </Stack>
-      <ButtonGroup orientation="vertical" variant="text">
-        {buttons}
-      </ButtonGroup>
+      <Divider orientation="vertical" flexItem />
     </Stack>
   );
 }
