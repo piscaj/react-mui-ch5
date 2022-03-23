@@ -31,9 +31,16 @@ import MenuLeft from "./widgets/MenuLeft";
 import PowerButton from "./widgets/PowerButton";
 import { DriveLinks, DriveRoutes } from "./widgets/DrivePages";
 import "../assets/scss/AdvLevel.scss";
+import {
+  useDigitalState,
+  usePublishDigital,
+} from "./imports/CrComLibHook";
 
 function Main() {
   const [connected, setConnected] = useState(false);
+
+  const digitalStateLogo = useDigitalState("5");
+  const handleClickLogo = usePublishDigital("0", "0");
 
   //Make the connection to Crestron Processor
   useEffect(() => {
@@ -214,7 +221,7 @@ function Main() {
               </IconButton>
             </Box>
             <Box
-              className="logo"
+              className={digitalStateLogo === false ? "logoSmHide":"logoSm"}
               sx={{
                 ml: "20px",
                 mt: "5px",

@@ -1,0 +1,9 @@
+@import "./responsiveType.scss";
+
+.logoLg img {
+  margin-top: 50px;
+  height: auto;
+  @include fluid-type(width, 320px, 1366px, 250px, 700px);
+  min-height: 0vw; //Safari fix ????
+}
+
