@@ -38,7 +38,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "build:archive": "yarn build && ch5-cli archive -p ReactCH5 -d build -o build ",
-    "build:deploy": "ch5-cli deploy -H 192.168.1.188. -p -t touchscreen build/ReactCH5.ch5z",
+    "build:deploy": "ch5-cli deploy -H 192.168.2.63 -p -t touchscreen build/ReactCH5.ch5z",
     "build:deploy:mobile": "ch5-cli deploy -H tshostname -t mobile build/ReactCH5.ch5z",
     "build:deployweb": "ch5-cli deploy -H 192.168.2.29 -p -t web build/ReactCH5.ch5z"
   },

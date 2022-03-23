@@ -169,7 +169,7 @@ const AudioSystem = (props) => {
                       muiColor="primary"
                       muiColorFeedback="secondary"
                       muiVariant="contained"
-                      digitalJoin="5"
+                      digitalJoin="3"
                       addStyle={{
                         maxWidth: "150px",
                         maxHeight: "50px",
@@ -184,7 +184,7 @@ const AudioSystem = (props) => {
                       muiColor="primary"
                       muiColorFeedback="secondary"
                       muiVariant="contained"
-                      digitalJoin="6"
+                      digitalJoin="4"
                       addStyle={{
                         maxWidth: "150px",
                         maxHeight: "50px",
