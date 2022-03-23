@@ -25,13 +25,12 @@ const AudioSystem = (props) => {
         overflow: "scroll",
       }}
     >
-      <Stack direction="column" alignItems="center" sx={{ p: "35px" }}>
+      <Stack direction="column" alignItems="center" sx={{ mt:"30px", p: "10px" }}>
         <Box sx={{ mb: "5px" }}>
           <Header title={"Audio Power and Levels"} />
         </Box>
         <Stack
           direction="row"
-          spacing={2}
           justifyContent="center"
           alignItems="center"
           sx={{ flexWrap: "wrap-reverse" }}
@@ -92,7 +91,6 @@ const AudioSystem = (props) => {
             </Box>
             <Stack
               direction="row"
-              spacing={2}
               justifyContent="center"
               alignItems="center"
               sx={{ flexWrap: "wrap" }}

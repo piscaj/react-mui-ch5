@@ -48,7 +48,7 @@ function SystemAudLevels() {
       variant="contained"
       disableElevation
     >
-      Main Program
+      Program
     </Button>,
     <Button
       key="2"
