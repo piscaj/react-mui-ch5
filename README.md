@@ -2,6 +2,8 @@
 Example project for kick starting a React project using Crestron's cr-com-lib.
 This project uses MUI library and is built without using Crestron's CH5 components.
 
+Project tested on TS-1070 with responsive design to work on mobile.
+
 Basic SIMPL program included. 
 
 This project uses Fontawesome Pro, so a few modifacations may be needed if you don't have a licence.  No licence, change dependencies to Free version and adjust icon imports in project where needed.
@@ -13,4 +15,12 @@ To fix this do the following:
 	1.	Open: node_modules/@crestron/ch5-crcomlib/package.json
 	2.	Change: "types": "build_bundles/umd/@types/index.d.ts"
 		Replace with: "types": "build_bundles/cjs/@types/index.d.ts", "main": "build_bundles/cjs/cr-com-lib.js",
+
+NPM Scrips included to...
+
+"build:archive" = This will build the React app and create a .ch5z 
+"build:deploy" = Loading touchpanel. You can change this to fit your needs
+"build:deploy:mobile" = Loading mobile. You can change this to fit your needs
+"build:deployweb" = Loading web. You can change this to fit your needs
+ 
 	
