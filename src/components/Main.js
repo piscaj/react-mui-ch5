@@ -32,13 +32,15 @@ import MenuLeft from "./widgets/MenuLeft";
 import PowerButton from "./widgets/PowerButton";
 import { DriveLinks, DriveRoutes } from "./widgets/DrivePages";
 import "../assets/scss/AdvLevel.scss";
-import { useDigitalState, usePublishDigital } from "./imports/CrComLibHook";
+import { useDigitalState } from "./imports/CrComLibHook";
 
 function Main() {
   const [connected, setConnected] = useState(false);
 
-  const digitalStateLogo = useDigitalState("5");
-  const handleClickLogo = usePublishDigital("0", "0");
+  const digitalStateShowingLogo = useDigitalState("9");
+  const digitalStateShowArrow = useDigitalState("9");
+  const digitalStateShowBadge = useDigitalState("5");
+  //const handleClickLogo = usePublishDigital("0", "0");
 
   //Make the connection to Crestron Processor
   useEffect(() => {
@@ -221,36 +223,42 @@ function Main() {
             <Box
               className="logoSm"
               sx={{
-                ml: "20px",
+                ml: "25px",
                 mt: "5px",
               }}
             >
-              {digitalStateLogo === true ? (
+              {digitalStateShowingLogo === false ? (
                 theme.palette.mode === "dark" ? (
-                  <img src={GHMCLogoSm} alt="" />
+                  <Slide direction="down" in={digitalStateShowBadge}>
+                    <img src={GHMCLogoSm} alt="" />
+                  </Slide>
                 ) : (
-                  <img src={GHMCLogoSm} alt="" />
+                  <Slide direction="down" in={digitalStateShowBadge}>
+                    <img src={GHMCLogoSm} alt="" />
+                  </Slide>
                 )
               ) : (
-                <Box sx={{ ml: "20px", position: "relative" }}>
-                  <Box>
-                    <FontAwesomeIcon
-                      icon={faArrowLeft}
-                      size="2x"
-                      className="fa-bounce"
-                    />
-                    <Box
-                      sx={{
-                        position: "absolute",
-                        left: "40px",
-                        bottom: "7px",
-                        display: "inline-block",
-                      }}
-                    >
-                      Start
+                <Slide direction="down" in={digitalStateShowArrow}>
+                  <Box sx={{ ml: "20px", position: "relative" }}>
+                    <Box>
+                      <FontAwesomeIcon
+                        icon={faArrowLeft}
+                        size="2x"
+                        className="fa-bounce"
+                      />
+                      <Box
+                        sx={{
+                          position: "absolute",
+                          left: "40px",
+                          bottom: "7px",
+                          display: "inline-block",
+                        }}
+                      >
+                        Start
+                      </Box>
                     </Box>
                   </Box>
-                </Box>
+                </Slide>
               )}
             </Box>
 
