@@ -8,7 +8,7 @@ Basic SIMPL program included and archive of project in the Example folder.
 
 .env file has config for Crestron processor.
 
-This project uses FontAwesome Pro, so a few modifacations may be needed if you don't have a licence.  No licence, change dependencies to Free version and adjust icon imports in project where needed.
+This project uses FontAwesome Pro, so a few modifacations may be needed if you don't have a licence.  No licence? change dependencies to Free version and adjust icon imports in project where needed.
 
 Note: The com library will have importing problems to index.js when first installed.
 
@@ -26,4 +26,5 @@ NPM Scrips included to...
 3.	"build:deploy:mobile" = Loading mobile. You can change this to fit your needs
 4.	"build:deployweb" = Loading web. You can change this to fit your needs
  
+
 	
