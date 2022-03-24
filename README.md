@@ -6,6 +6,8 @@ Project tested on TS-1070 with responsive design to work on mobile.
 
 Basic SIMPL program included. 
 
+.env file has config for Crestron processor.
+
 This project uses FontAwesome Pro, so a few modifacations may be needed if you don't have a licence.  No licence, change dependencies to Free version and adjust icon imports in project where needed.
 
 Note: The com library will have importing problems to index.js when first installed.
