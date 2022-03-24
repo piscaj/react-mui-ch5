@@ -1,14 +1,11 @@
-@media only screen and (max-width: 414px) {
-    .presSwitcherInput {
-        max-width: 150px;
-        max-width: 125px;
-        min-width: none;Width: 150px;
-        min-width: none;Height: 125px;
-    }
+.pres-video-input-container {
+  flex-wrap: wrap;
+}
+
+@media only screen and (min-width:  1280px) {
+  .pres-video-input-container {
+    margin-left: 15%;
+    margin-right: 15%;
   }
-  @media only screen and (min-width: 414px) {
-    .logoSm img {
-      height: auto;
-      width: 72px;
-    }
-  }
+}
+

@@ -24,6 +24,7 @@ import {
   faCheeseburger,
   faSun,
   faMoon,
+  faArrowLeft,
 } from "@fortawesome/pro-duotone-svg-icons";
 import GHMCLogoSm from "../assets/images/GHMCLogo400.png";
 import Box from "@mui/material/Box";
@@ -31,10 +32,7 @@ import MenuLeft from "./widgets/MenuLeft";
 import PowerButton from "./widgets/PowerButton";
 import { DriveLinks, DriveRoutes } from "./widgets/DrivePages";
 import "../assets/scss/AdvLevel.scss";
-import {
-  useDigitalState,
-  usePublishDigital,
-} from "./imports/CrComLibHook";
+import { useDigitalState, usePublishDigital } from "./imports/CrComLibHook";
 
 function Main() {
   const [connected, setConnected] = useState(false);
@@ -221,16 +219,38 @@ function Main() {
               </IconButton>
             </Box>
             <Box
-              className={digitalStateLogo === false ? "logoSmHide":"logoSm"}
+              className="logoSm"
               sx={{
                 ml: "20px",
                 mt: "5px",
               }}
             >
-              {theme.palette.mode === "dark" ? (
-                <img src={GHMCLogoSm} alt="" />
+              {digitalStateLogo === true ? (
+                theme.palette.mode === "dark" ? (
+                  <img src={GHMCLogoSm} alt="" />
+                ) : (
+                  <img src={GHMCLogoSm} alt="" />
+                )
               ) : (
-                <img src={GHMCLogoSm} alt="" />
+                <Box sx={{ ml: "20px", position: "relative" }}>
+                  <Box>
+                    <FontAwesomeIcon
+                      icon={faArrowLeft}
+                      size="2x"
+                      className="fa-bounce"
+                    />
+                    <Box
+                      sx={{
+                        position: "absolute",
+                        left: "40px",
+                        bottom: "7px",
+                        display: "inline-block",
+                      }}
+                    >
+                      Start
+                    </Box>
+                  </Box>
+                </Box>
               )}
             </Box>
 
