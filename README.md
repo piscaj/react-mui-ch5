@@ -20,7 +20,8 @@ To fix this do the following:
 
 NPM Scrips included to...
 
-"build:archive" = This will build the React app and create a .ch5z 
+1.	Open: node_modules/@crestron/ch5-crcomlib/package.json
+2. 	"build:archive" = This will build the React app and create a .ch5z 
 "build:deploy" = Loading touchpanel. You can change this to fit your needs
 "build:deploy:mobile" = Loading mobile. You can change this to fit your needs
 "build:deployweb" = Loading web. You can change this to fit your needs
