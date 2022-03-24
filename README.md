@@ -1,5 +1,12 @@
 
-The com library will have importing problems to index.js when first installed.
+Example project for kick starting a React project using Crestron's cr-com-lib.
+This project uses MUI library and is built without using Crestron's CH5 components.
+
+Basic SIMPL program included. 
+
+This project uses Fontawesome Pro, so a few modifacations may be needed if you don't have a licence.  No licence, change dependencies to Free version and adjust icon imports in project where needed.
+
+Note: The com library will have importing problems to index.js when first installed.
 
 To fix this do the following:
 
