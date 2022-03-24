@@ -4,7 +4,7 @@ This project uses MUI library and is built without using Crestron's CH5 componen
 
 Project tested on TS-1070 with responsive design to work on mobile.
 
-Basic SIMPL program included. 
+Basic SIMPL program included and archive of project in the Example folder.
 
 .env file has config for Crestron processor.
 
