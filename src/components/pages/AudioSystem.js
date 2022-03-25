@@ -25,8 +25,8 @@ const AudioSystem = (props) => {
         overflow: "scroll",
       }}
     >
-      <Stack direction="column" alignItems="center" sx={{ mt:"30px", p: "10px" }}>
-        <Box sx={{ mb: "5px" }}>
+      <Stack direction="column" alignItems="center" sx={{ mt:"40px" }}>
+        <Box sx={{ mb: "25px" }}>
           <Header title={"Audio Power and Levels"} />
         </Box>
         <Stack
@@ -35,7 +35,7 @@ const AudioSystem = (props) => {
           alignItems="center"
           sx={{ flexWrap: "wrap-reverse" }}
         >
-          <Box sx={{ p: "30px", textAlign: "center" }}>
+          <Box sx={{ p: "20px", textAlign: "center" }}>
             <Header
               title={"Volume Levels"}
               size={"h6"}
@@ -62,12 +62,10 @@ const AudioSystem = (props) => {
                     muiColor="primary"
                     muiColorFeedback="secondary"
                     muiVariant="contained"
-                    digitalJoin="1"
+                    digitalJoin="44"
                     addStyle={{
-                      maxWidth: "150px",
-                      maxHeight: "75px",
-                      minWidth: "150px",
-                      minHeight: "75px",
+                      width: "150px",
+                      height: "75px",
                     }}
               
                   />
@@ -78,12 +76,10 @@ const AudioSystem = (props) => {
                     muiColor="primary"
                     muiColorFeedback="secondary"
                     muiVariant="contained"
-                    digitalJoin="2"
+                    digitalJoin="43"
                     addStyle={{
-                      maxWidth: "150px",
-                      maxHeight: "75px",
-                      minWidth: "150px",
-                      minHeight: "75px",
+                      width: "150px",
+                      height: "75px",
                     }}
                   />
                 </Box>
@@ -108,12 +104,10 @@ const AudioSystem = (props) => {
                       muiColor="primary"
                       muiColorFeedback="secondary"
                       muiVariant="contained"
-                      digitalJoin="1"
+                      digitalJoin="30"
                       addStyle={{
-                        maxWidth: "200px",
-                        maxHeight: "45px",
-                        minWidth: "200px",
-                        minHeight: "45px",
+                        width: "200px",
+                        height: "45px",
                       }}
                     />
                   </Box>
@@ -123,12 +117,10 @@ const AudioSystem = (props) => {
                       muiColor="primary"
                       muiColorFeedback="secondary"
                       muiVariant="contained"
-                      digitalJoin="2"
+                      digitalJoin="31"
                       addStyle={{
-                        maxWidth: "200px",
-                        maxHeight: "45px",
-                        minWidth: "200px",
-                        minHeight: "45px",
+                        width: "200px",
+                        height: "45px",
                       }}
                     />
                   </Box>
@@ -138,12 +130,10 @@ const AudioSystem = (props) => {
                       muiColor="primary"
                       muiColorFeedback="secondary"
                       muiVariant="contained"
-                      digitalJoin="3"
+                      digitalJoin="32"
                       addStyle={{
-                        maxWidth: "200px",
-                        maxHeight: "45px",
-                        minWidth: "200px",
-                        minHeight: "45px",
+                        width: "200px",
+                        height: "45px",
                       }}
                     />
                   </Box>
@@ -167,12 +157,10 @@ const AudioSystem = (props) => {
                       muiColor="primary"
                       muiColorFeedback="secondary"
                       muiVariant="contained"
-                      digitalJoin="3"
+                      digitalJoin="46"
                       addStyle={{
-                        maxWidth: "150px",
-                        maxHeight: "50px",
-                        minWidth: "150px",
-                        minHeight: "50px",
+                        width: "150px",
+                        height: "50px",
                       }}
                     />
                   </Box>
@@ -182,12 +170,10 @@ const AudioSystem = (props) => {
                       muiColor="primary"
                       muiColorFeedback="secondary"
                       muiVariant="contained"
-                      digitalJoin="4"
+                      digitalJoin="47"
                       addStyle={{
-                        maxWidth: "150px",
-                        maxHeight: "50px",
-                        minWidth: "150px",
-                        minHeight: "50px",
+                        width: "150px",
+                        height: "50px",
                       }}
                     />
                   </Box>

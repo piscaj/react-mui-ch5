@@ -1,8 +1,10 @@
 import Box from "@mui/material/Box";
+import Card from "@mui/material/Card";
 import Stack from "@mui/material/Stack";
 import Paper from "@mui/material/Paper";
 import Header from "../widgets/Header";
-import MuiButton from "../widgets/MuiButton";
+import Transports from "../widgets/Transports";
+import BluRayNav from "../widgets/BluRayNav";
 
 const BluRay = (props) => {
   return (
@@ -17,10 +19,48 @@ const BluRay = (props) => {
         overflow: "scroll",
       }}
     >
-      <Stack direction="column" alignItems="center" sx={{}}>
-        <Box sx={{ m: "15px" }}>
+      <Stack
+        sx={{ mt: "40px", overflow: "scroll" }}
+        direction="column"
+        alignItems="center"
+        justifyContent="center"
+      >
+        <Box sx={{ mb: "10px" }}>
           <Header title={"Blu-ray Controls"} />
         </Box>
+        <Stack
+          direction="row"
+          alignItems="center"
+          justifyContent="center"
+          className="pres-video-input-container"
+        >
+          <Card
+            variant="outlined"
+            sx={{
+              textAlign: "center",
+              position: "relative",
+              width: "373px",
+              m: "5px",
+            }}
+          >
+            <Box sx={{ p: "5px" }}>
+              <Transports />
+            </Box>
+          </Card>
+          <Card
+            variant="outlined"
+            sx={{
+              textAlign: "center",
+              position: "relative",
+              width: "373px",
+              m: "5px",
+            }}
+          >
+            <Box sx={{ p: "5px" }}>
+              <BluRayNav />
+            </Box>
+          </Card>
+        </Stack>
       </Stack>
     </Paper>
   );

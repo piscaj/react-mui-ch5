@@ -57,7 +57,7 @@ function SystemAudLevels() {
       variant="contained"
       disableElevation
     >
-      Stage Mic 1
+      Mic 1
     </Button>,
     <Button
       key="3"
@@ -66,7 +66,7 @@ function SystemAudLevels() {
       variant="contained"
       disableElevation
     >
-      Stage Mic 2
+      Mic 2
     </Button>,
     <Button
       key="4"

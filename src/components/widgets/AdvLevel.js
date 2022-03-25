@@ -12,7 +12,14 @@ import {
 } from "@fortawesome/pro-duotone-svg-icons";
 import "../../assets/scss/AdvLevel.scss";
 
-function AdvLevel() {
+const AdvLevel = ({
+  name = "Level",
+  plusDigitalJoin = "0",
+  minusDigitalJoin = "0",
+  muteDigitalJoin = "0",
+  levelTextSerialJoin = "0",
+  levelAnalogJoin = "1",
+}) => {
   const marks = [
     {
       value: 5,
@@ -51,7 +58,7 @@ function AdvLevel() {
             mt: "2px",
           }}
         >
-          <Typography variant="h6">Stage</Typography>
+          <Typography variant="subtitle1">{name}</Typography>
         </Box>
         <Box
           sx={{
@@ -74,15 +81,13 @@ function AdvLevel() {
             >
               <Box sx={{ p: "3px", ml: "3px" }}>
                 <MuiIconButton
-                  digitalJoin="20"
+                  digitalJoin={plusDigitalJoin}
                   butRadius={8}
                   faIconInactive={faPlus}
                   faSize={"3x"}
                   addStyle={{
-                    maxWidth: "75px",
-                    maxHeight: "75px",
-                    minWidth: "75px",
-                    minHeight: "75px",
+                    width: "75px",
+                    height: "75px",
                   }}
                   hoverColor={"transparent"}
                   eventType={"press"}
@@ -90,15 +95,13 @@ function AdvLevel() {
               </Box>
               <Box sx={{ p: "3px" }}>
                 <MuiIconButton
-                  digitalJoin="21"
+                  digitalJoin={minusDigitalJoin}
                   butRadius={8}
                   faIconInactive={faMinus}
                   faSize={"3x"}
                   addStyle={{
-                    maxWidth: "75px",
-                    maxHeight: "75px",
-                    minWidth: "75px",
-                    minHeight: "75px",
+                    width: "75px",
+                    height: "75px",
                   }}
                   hoverColor={"transparent"}
                   eventType={"press"}
@@ -120,7 +123,7 @@ function AdvLevel() {
                 }}
               >
                 <SliderVertical
-                  analogJoin="1"
+                  analogJoin={levelAnalogJoin}
                   marks={marks}
                   styleClass="hideThumb sizeTrack sizeRail"
                 />
@@ -135,14 +138,12 @@ function AdvLevel() {
           >
             <Box sx={{ p: "5px" }}>
               <MuiButton
-                serialJoin="2"
-                text="0db"
+                serialJoin={levelTextSerialJoin}
                 muiVariant="text"
                 addStyle={{
-                  maxWidth: "100px",
-                  maxHeight: "40px",
-                  minWidth: "100px",
-                  minHeight: "40px",
+                  width: "100px",
+                  height: "40px",
+
                   fontSize: "24px",
                 }}
                 hoverColor={"transparent"}
@@ -151,7 +152,7 @@ function AdvLevel() {
             </Box>
             <Box sx={{ p: "5px", mb: "6px" }}>
               <MuiButton
-                digitalJoin="22"
+                digitalJoin={muteDigitalJoin}
                 text="Mute"
                 muiVariant="text"
                 muiColorFeedback="error"
@@ -159,10 +160,8 @@ function AdvLevel() {
                 faIconActive={faVolumeSlash}
                 faSize={"3x"}
                 addStyle={{
-                  maxWidth: "135px",
-                  maxHeight: "60px",
-                  minWidth: "135px",
-                  minHeight: "60px",
+                  width: "135px",
+                  height: "60px",
                 }}
                 hoverColor={"transparent"}
               />
@@ -172,6 +171,6 @@ function AdvLevel() {
       </Box>
     </Card>
   );
-}
+};
 
 export default AdvLevel;

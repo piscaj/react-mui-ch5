@@ -18,9 +18,13 @@ const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-const PowerButton = ({ digitalJoinShow = "0", digitalJoin = "0",digitalJoinOk
- = "0",digitalJoinCancel = "0", themeMode = "light"}) => {
-  
+const PowerButton = ({
+  digitalJoinShow = "0",
+  digitalJoin = "0",
+  digitalJoinOk = "0",
+  digitalJoinCancel = "0",
+  themeMode = "light",
+}) => {
   const [showPower, showPowerState] = useState(false);
   const [open, setOpen] = React.useState(false);
   const digitalStateShow = useDigitalState(digitalJoinShow);
@@ -79,6 +83,7 @@ const PowerButton = ({ digitalJoinShow = "0", digitalJoin = "0",digitalJoinOk
         TransitionComponent={Transition}
         keepMounted
         onClose={handleClose}
+        onBackdropClick={() => {handleCancelClick()}}
       >
         <DialogTitle>Shutdown?</DialogTitle>
         <DialogContent>

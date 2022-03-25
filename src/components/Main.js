@@ -223,7 +223,7 @@ function Main() {
             <Box
               className="logoSm"
               sx={{
-                ml: "25px",
+                ml: "35px",
                 mt: "5px",
               }}
             >
